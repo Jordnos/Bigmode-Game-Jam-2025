@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var SPEED = 300.0
+@export var SPEED = 350.0
 @export var JUMP_VELOCITY = -400.0
 
 @onready var pin_joint = $PinJoint2D
