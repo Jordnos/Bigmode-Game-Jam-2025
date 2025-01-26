@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://d23qavoltn7se"]
+
+[ext_resource type="Script" path="res://scripts/cord.gd" id="1_cavsf"]
+[ext_resource type="PackedScene" uid="uid://mdmi6gvehjnb" path="res://scenes/cord_segment.tscn" id="1_xqsaq"]
+[ext_resource type="PackedScene" uid="uid://depa4g1bklech" path="res://scenes/cord_anchor.tscn" id="2_a5gsj"]
+[ext_resource type="PackedScene" uid="uid://brp5trv2od13a" path="res://scenes/plug.tscn" id="4_d8m60"]
+
+[node name="Cord" type="Node2D"]
+position = Vector2(7, -2)
+script = ExtResource("1_cavsf")
+
+[node name="CordAnchor" parent="." instance=ExtResource("2_a5gsj")]
+position = Vector2(-7, -146)
+collision_mask = 6
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(-7, -126)
+node_a = NodePath("../CordAnchor")
+node_b = NodePath("../CordSegment")
+
+[node name="CordSegment" parent="." instance=ExtResource("1_xqsaq")]
+position = Vector2(-7, -62)
+script = null
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="."]
+position = Vector2(-7, 2)
+node_a = NodePath("../CordSegment")
+node_b = NodePath("../CordSegment2")
+
+[node name="CordSegment2" parent="." instance=ExtResource("1_xqsaq")]
+position = Vector2(-7, 66)
+script = null
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="."]
+position = Vector2(-7, 130)
+node_a = NodePath("../CordSegment2")
+node_b = NodePath("../CordSegment3")
+
+[node name="CordSegment3" parent="." instance=ExtResource("1_xqsaq")]
+position = Vector2(-7, 194)
+
+[node name="PinJoint2D4" type="PinJoint2D" parent="."]
+position = Vector2(-7, 258)
+node_a = NodePath("../CordSegment3")
+node_b = NodePath("../Plug")
+
+[node name="Plug" parent="." instance=ExtResource("4_d8m60")]
+position = Vector2(-7, 322)
