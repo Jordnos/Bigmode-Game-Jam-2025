@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://stu26oaioiwv"]
+[gd_scene load_steps=6 format=3 uid="uid://stu26oaioiwv"]
 
 [ext_resource type="PackedScene" uid="uid://dlig8qwhnjxum" path="res://scenes/player.tscn" id="1_2w8wb"]
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_q8kmr"]
 [ext_resource type="PackedScene" uid="uid://d23qavoltn7se" path="res://scenes/cord.tscn" id="2_jvqg4"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_7srw1"]
@@ -10,9 +11,10 @@ size = Vector2(1000, 100)
 size = Vector2(1148, 97)
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_q8kmr")
 
 [node name="Player" parent="." instance=ExtResource("1_2w8wb")]
-position = Vector2(525, 547)
+position = Vector2(383, 472)
 
 [node name="Platform" type="StaticBody2D" parent="."]
 collision_layer = 4
@@ -28,4 +30,5 @@ position = Vector2(574, 592.5)
 shape = SubResource("RectangleShape2D_cf8ic")
 
 [node name="Cord" parent="." instance=ExtResource("2_jvqg4")]
-position = Vector2(718, 142)
+position = Vector2(742, 229)
+rotation = -0.958186
