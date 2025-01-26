@@ -17,6 +17,7 @@ script = ExtResource("1_q8kmr")
 position = Vector2(383, 472)
 
 [node name="Platform" type="StaticBody2D" parent="."]
+position = Vector2(1, 0)
 collision_layer = 4
 collision_mask = 7
 
