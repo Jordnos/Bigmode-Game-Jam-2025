@@ -13,9 +13,6 @@ size = Vector2(1148, 97)
 [node name="World" type="Node2D"]
 script = ExtResource("1_q8kmr")
 
-[node name="Player" parent="." instance=ExtResource("1_2w8wb")]
-position = Vector2(383, 472)
-
 [node name="Platform" type="StaticBody2D" parent="."]
 position = Vector2(1, 0)
 collision_layer = 4
@@ -33,3 +30,6 @@ shape = SubResource("RectangleShape2D_cf8ic")
 [node name="Cord" parent="." instance=ExtResource("2_jvqg4")]
 position = Vector2(1182, 422)
 rotation = 1.4748
+
+[node name="Player" parent="." instance=ExtResource("1_2w8wb")]
+position = Vector2(383, 472)

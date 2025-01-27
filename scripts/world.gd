@@ -6,4 +6,3 @@ func _process(delta: float) -> void:
 
 func restart() -> void:
 	get_tree().reload_current_scene()
-	
