@@ -31,5 +31,5 @@ position = Vector2(574, 592.5)
 shape = SubResource("RectangleShape2D_cf8ic")
 
 [node name="Cord" parent="." instance=ExtResource("2_jvqg4")]
-position = Vector2(742, 229)
-rotation = -0.958186
+position = Vector2(1182, 422)
+rotation = 1.4748

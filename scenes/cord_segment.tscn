@@ -1,23 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://mdmi6gvehjnb"]
+[gd_scene load_steps=3 format=3 uid="uid://c3u6fhllc6di4"]
 
 [ext_resource type="Texture2D" uid="uid://da0m6qcahaaxc" path="res://assets/icon.svg" id="2_2vtae"]
-
-[sub_resource type="GDScript" id="GDScript_ia0hn"]
-script/source = "extends RigidBody2D
-
-func toggle_collision(enabled: bool):
-	for shape in get_children():
-		if shape is CollisionShape2D:
-			shape.set_collision_mask_value(4)
-"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bncla"]
 size = Vector2(20, 128)
 
 [node name="CordSegment" type="RigidBody2D"]
 collision_layer = 2
-collision_mask = 7
-script = SubResource("GDScript_ia0hn")
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_bncla")

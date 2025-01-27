@@ -1,10 +1,11 @@
 extends Node2D
 
+@onready var max_cord_length = $CordAnchor.position.distance_to($Plug.position)
+
 var collision_enabled = false
 
 func _ready() -> void:
 	update_collision_mask()
-	# Debugging: Print the current collision mask and layer
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("rope_collision"):
@@ -15,5 +16,3 @@ func update_collision_mask() -> void:
 	for segment in get_children():
 		if segment is RigidBody2D and segment.name != "Plug":
 			segment.set_collision_mask_value(1, collision_enabled)
-			
-	
