@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dlig8qwhnjxum" path="res://scenes/player.tscn" id="1_2w8wb"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_q8kmr"]
 [ext_resource type="PackedScene" uid="uid://d23qavoltn7se" path="res://scenes/cord.tscn" id="2_jvqg4"]
-[ext_resource type="PackedScene" uid="uid://bxlm2o2kraas3" path="res://scenes/outlet.tscn" id="4_l53c6"]
+[ext_resource type="PackedScene" path="res://scenes/outlet.tscn" id="4_l53c6"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_7srw1"]
 size = Vector2(1000, 100)

@@ -17,24 +17,24 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("grab"):
 		if not grab_joint and grab_target:
+			if grab_target.get_state() == grab_target.STATE_PLUGGED:
+				interact_target.unplug()
 			plug_into_cord()
 		elif grab_joint:
 			unplug_from_cord()
 
 	if Input.is_action_just_pressed("interact"):
-		print("INTERACT PRESSED")
 		if interact_target:  # assume only interactable is outlet rn
 			if interact_target.get_state() == interact_target.STATE_NORMAL:
-				# TODO: play animation and steal power from outlet once* if not holding cord
-				print("POWER UP")
 				if grab_joint: # plug if holding cord
-					grab_target.plug(interact_target)
-					print("PLUG IT IN")
+					unplug_from_cord()
+					interact_target.plug(grab_target)
+				else:
+					# TODO: play animation and steal power from outlet once* if not holding cord
+					print("POWER UP")
 
-
-			elif interact_target.get_state() == interact_target.PLUGGED:
-				grab_target.unplug()
-				print("UNPLUG")
+			elif interact_target.get_state() == interact_target.STATE_PLUGGED:
+				interact_target.unplug()
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -76,17 +76,14 @@ func _physics_process(delta: float) -> void:
 func _on_interactable_area_body_entered(body: Node) -> void:
 	if not grab_joint and body.is_in_group("grabbable"):
 		grab_target = body
-		print("GRABBABLE FOUND")
 	if body.is_in_group("interactable"):
 		interact_target = body
-		print("INTERACTABLE FOUND")
 
 func _on_interactable_area_body_exited(body: Node) -> void:
 	if not grab_joint and body.is_in_group("grabbable"):
 		grab_target = null
 	if body.is_in_group("interactable"):
 		interact_target = null
-		print("NO INTERACTABLE")
 
 func plug_into_cord() -> void:
 	if grab_target:
