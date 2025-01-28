@@ -16,3 +16,6 @@ func update_collision_mask() -> void:
 	for segment in get_children():
 		if segment is RigidBody2D and segment.name != "Plug":
 			segment.set_collision_mask_value(1, collision_enabled)
+
+func get_max_cord_length() -> int:
+	return max_cord_length

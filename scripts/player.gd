@@ -3,35 +3,38 @@ extends CharacterBody2D
 @export var SPEED = 350.0
 @export var JUMP_VELOCITY = -500.0
 
-@onready var pin_joint = $PinJoint2D
-@onready var grab_area = $Area2D
-
-var is_grabbed = false
-var grab_target = null
-
-func _ready() -> void:
-	grab_area.connect("body_entered", Callable(self, "_on_grab_area_body_entered"))
-	grab_area.connect("body_exited", Callable(self, "_on_grab_area_body_exited"))
-
-func _process(delta: float) -> void:
-	if is_grabbed && grab_target:
-		grab_target.global_position = global_position
-		
-	if Input.is_action_just_pressed("grab"):
-		if not is_grabbed and grab_target:
-			is_grabbed = true
-			self.global_position = grab_target.global_position
-			pin_joint.position = grab_target.global_position
-			pin_joint.node_a = get_path()
-			pin_joint.node_b = grab_target.get_path()
-		elif is_grabbed:
-			is_grabbed = false
-			pin_joint.node_a = ""
-			pin_joint.node_b = ""
-			
-
+@onready var interact_area = $Area2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
+var grab_joint = null
+var grab_target = null
+var interact_target = null
+
+func _ready() -> void:
+	interact_area.connect("body_entered", Callable(self, "_on_interactable_area_body_entered"))
+	interact_area.connect("body_exited", Callable(self, "_on_interactable_area_body_exited"))
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("grab"):
+		if not grab_joint and grab_target:
+			plug_into_cord()
+		elif grab_joint:
+			unplug_from_cord()
+
+	if Input.is_action_just_pressed("interact"):
+		print("INTERACT PRESSED")
+		if interact_target:  # assume only interactable is outlet rn
+			if interact_target.get_state() == interact_target.STATE_NORMAL:
+				# TODO: play animation and steal power from outlet once* if not holding cord
+				print("POWER UP")
+				if grab_joint: # plug if holding cord
+					grab_target.plug(interact_target)
+					print("PLUG IT IN")
+
+
+			elif interact_target.get_state() == interact_target.PLUGGED:
+				grab_target.unplug()
+				print("UNPLUG")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -44,13 +47,13 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	var direction := Input.get_axis("move_left", "move_right")
-	
+
 	#Flip Sprite Direction
 	if direction > 0:
 		animated_sprite_2d.flip_h = true
 	elif direction < 0: 
 		animated_sprite_2d.flip_h = false
-	
+
 	#Play animations
 	if is_on_floor():
 		if direction == 0:
@@ -59,7 +62,7 @@ func _physics_process(delta: float) -> void:
 			animated_sprite_2d.play("run")
 	else:
 		animated_sprite_2d.play("jump")
-		
+
 	#Apply Movement
 	if direction:
 		velocity.x = direction * SPEED
@@ -67,11 +70,47 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
+	keep_player_in_cord_range()
 
-func _on_grab_area_body_entered(body: Node) -> void:
-	if not is_grabbed and body.is_in_group("grabbable"):
+func _on_interactable_area_body_entered(body: Node) -> void:
+	if not grab_joint and body.is_in_group("grabbable"):
 		grab_target = body
+		print("GRABBABLE FOUND")
+	if body.is_in_group("interactable"):
+		interact_target = body
+		print("INTERACTABLE FOUND")
 
-func _on_grab_area_body_exited(body: Node) -> void:
-	if not is_grabbed and body.is_in_group("grabbable"):
+func _on_interactable_area_body_exited(body: Node) -> void:
+	if not grab_joint and body.is_in_group("grabbable"):
 		grab_target = null
+	if body.is_in_group("interactable"):
+		interact_target = null
+		print("NO INTERACTABLE")
+
+func plug_into_cord() -> void:
+	if grab_target:
+		grab_target.global_position = self.global_position
+		grab_joint = PinJoint2D.new()
+		grab_joint.node_a = get_path()
+		grab_joint.node_b = grab_target.get_path()
+		grab_joint.position = Vector2.ZERO
+		add_child(grab_joint)
+
+func unplug_from_cord() -> void:
+	if grab_joint:
+		grab_joint.queue_free()
+		grab_joint = null
+
+func keep_player_in_cord_range() -> void:
+	if grab_joint and grab_target:
+		var cord = grab_target.get_parent()
+		var anchor = grab_target.get_node("../CordAnchor")
+		var plug = grab_target
+
+		var cord_length = cord.get_max_cord_length()
+		var curr_length = anchor.position.distance_to(plug.position)
+
+		if curr_length >= cord_length:
+			global_position = anchor.global_position + \
+				(global_position - anchor.global_position).normalized() * cord_length
