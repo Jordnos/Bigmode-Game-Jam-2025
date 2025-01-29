@@ -40,7 +40,7 @@ func _process(delta: float) -> void:
 						print("no power up sadge")
 					else:
 						print("POWER UP ANIMATION")
-					power += interact_target.take_power()
+					power += power_gain
 
 			elif interact_target.get_state() == interact_target.STATE_PLUGGED:
 				interact_target.unplug()
