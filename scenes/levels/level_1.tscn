@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dght0ewmjrsr1"]
+[gd_scene load_steps=7 format=3 uid="uid://dght0ewmjrsr1"]
 
 [ext_resource type="PackedScene" uid="uid://d23qavoltn7se" path="res://scenes/cord.tscn" id="1_4rgh3"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_xie14"]
 [ext_resource type="PackedScene" uid="uid://bxlm2o2kraas3" path="res://scenes/outlet.tscn" id="2_50s5s"]
 [ext_resource type="PackedScene" uid="uid://dlig8qwhnjxum" path="res://scenes/player.tscn" id="3_h7yeb"]
 
@@ -11,6 +12,7 @@ size = Vector2(1000, 100)
 size = Vector2(1148, 97)
 
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_xie14")
 
 [node name="Platform" type="StaticBody2D" parent="."]
 position = Vector2(1, 0)

@@ -15,6 +15,9 @@ size = Vector2(1148, 97)
 [node name="Level0" type="Node2D"]
 script = ExtResource("1_nn26c")
 
+[node name="Door" parent="." instance=ExtResource("2_3c0m2")]
+position = Vector2(1635, 260)
+
 [node name="Platform" type="StaticBody2D" parent="."]
 position = Vector2(179, -1)
 collision_layer = 2
@@ -43,15 +46,12 @@ mesh = SubResource("QuadMesh_7srw1")
 position = Vector2(574, 592.5)
 shape = SubResource("RectangleShape2D_cf8ic")
 
-[node name="Door" parent="." instance=ExtResource("2_3c0m2")]
-position = Vector2(570, 479)
-
 [node name="Cord" parent="." instance=ExtResource("2_bodpp")]
-position = Vector2(1182, 422)
-rotation = 1.4748
+position = Vector2(1286, 373)
+rotation = 1.309
 
 [node name="Outlet" parent="." instance=ExtResource("3_lr65h")]
-position = Vector2(1073, 458)
+position = Vector2(977, 458)
 
 [node name="Outlet2" parent="." instance=ExtResource("3_lr65h")]
 position = Vector2(372, 419)
