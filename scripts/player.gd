@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var interact_area = $Area2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
+var power = 0
 var grab_joint = null
 var grab_target = null
 var interact_target = null
@@ -118,3 +119,6 @@ func keep_player_in_cord_range() -> void:
 		if curr_length >= cord_length:
 			global_position = anchor.global_position + \
 				(global_position - anchor.global_position).normalized() * cord_length
+
+func get_power() -> int:
+	return power
