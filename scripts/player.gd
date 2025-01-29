@@ -19,7 +19,8 @@ func _process(delta: float) -> void:
 		if not grab_joint and grab_target:
 			if grab_target.get_state() == grab_target.STATE_PLUGGED:
 				interact_target.unplug()
-			plug_into_cord()
+			else:
+				plug_into_cord()
 		elif grab_joint:
 			unplug_from_cord()
 
@@ -30,8 +31,10 @@ func _process(delta: float) -> void:
 					unplug_from_cord()
 					interact_target.plug(grab_target)
 				else:
-					# TODO: play animation and steal power from outlet once* if not holding cord
-					print("POWER UP")
+					if interact_target.take_power():
+						print("POWER UP")
+					else:
+						print("no power srry")
 
 			elif interact_target.get_state() == interact_target.STATE_PLUGGED:
 				interact_target.unplug()
@@ -44,6 +47,10 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+
+	if not interact_target and grab_joint and Input.is_action_just_pressed("interact"):
+		velocity.y = JUMP_VELOCITY
+		unplug_from_cord()
 
 	# Get the input direction and handle the movement/deceleration.
 	var direction := Input.get_axis("move_left", "move_right")

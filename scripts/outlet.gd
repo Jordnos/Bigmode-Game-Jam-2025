@@ -5,11 +5,13 @@ const STATE_PLUGGED = "plugged"
 
 var state = null
 var connected_to = null
+var power = null
 
 @onready var joint = null
 
 func _ready() -> void:
 	state = STATE_NORMAL
+	power = true
 
 func _process(delta: float) -> void:
 	pass
@@ -42,4 +44,9 @@ func unplug() -> void:
 		state = STATE_NORMAL
 		joint.queue_free()
 		joint = null
-		
+
+func take_power() -> bool:
+	if power == true:
+		power = false
+		return true
+	return false
