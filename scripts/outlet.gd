@@ -45,8 +45,7 @@ func unplug() -> void:
 		joint.queue_free()
 		joint = null
 
-func take_power() -> bool:
-	if power == true:
-		power = false
-		return true
-	return false
+func take_power() -> int:
+	var power_released = 1 if power else 0
+	power = false
+	return power_released

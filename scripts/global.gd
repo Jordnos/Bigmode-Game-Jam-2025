@@ -5,6 +5,7 @@ var player = null
 
 const LEVEL_POWER_NEEDED = {
 	0: 2,
+	1: 1
 }
 
 # Called when the node enters the scene tree for the first time.

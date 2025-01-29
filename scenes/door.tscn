@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://nolw53c12th"]
+
+[ext_resource type="Texture2D" uid="uid://da0m6qcahaaxc" path="res://assets/icon.svg" id="1_2dipq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n3afb"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2644y"]
+size = Vector2(128, 128)
+
+[node name="Door" type="StaticBody2D" groups=["door", "interactable"]]
+collision_layer = 16
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2dipq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_n3afb")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_2644y")
