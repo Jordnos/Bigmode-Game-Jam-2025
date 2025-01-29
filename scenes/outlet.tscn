@@ -9,7 +9,7 @@ size = Vector2(64, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e0bop"]
 size = Vector2(64, 64)
 
-[node name="Outlet" type="StaticBody2D" groups=["interactable"]]
+[node name="Outlet" type="StaticBody2D" groups=["interactable", "outlet"]]
 auto_translate_mode = 2
 collision_layer = 16
 collision_mask = 0
@@ -24,7 +24,7 @@ texture = ExtResource("1_lpvfm")
 shape = SubResource("RectangleShape2D_xwpqj")
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 8
+collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_e0bop")

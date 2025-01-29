@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://stu26oaioiwv"]
+[gd_scene load_steps=8 format=3 uid="uid://stu26oaioiwv"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_nn26c"]
+[ext_resource type="PackedScene" uid="uid://nolw53c12th" path="res://scenes/door.tscn" id="2_3c0m2"]
 [ext_resource type="PackedScene" uid="uid://d23qavoltn7se" path="res://scenes/cord.tscn" id="2_bodpp"]
 [ext_resource type="PackedScene" uid="uid://bxlm2o2kraas3" path="res://scenes/outlet.tscn" id="3_lr65h"]
 [ext_resource type="PackedScene" uid="uid://dlig8qwhnjxum" path="res://scenes/player.tscn" id="4_g7iii"]
@@ -41,6 +42,9 @@ mesh = SubResource("QuadMesh_7srw1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
 position = Vector2(574, 592.5)
 shape = SubResource("RectangleShape2D_cf8ic")
+
+[node name="Door" parent="." instance=ExtResource("2_3c0m2")]
+position = Vector2(570, 479)
 
 [node name="Cord" parent="." instance=ExtResource("2_bodpp")]
 position = Vector2(1182, 422)

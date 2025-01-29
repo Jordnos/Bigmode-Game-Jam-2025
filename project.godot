@@ -26,7 +26,6 @@ version_control/autoload_on_startup=true
 
 [global_group]
 
-grabbable=""
 player=""
 interactable=""
 
@@ -77,7 +76,7 @@ interact={
 2d_physics/layer_2="Platform"
 2d_physics/layer_3="Cord_Unplugged"
 2d_physics/layer_4="Cord_Plugged"
-2d_physics/layer_5="Outlet"
+2d_physics/layer_5="Interactable"
 
 [physics]
 
