@@ -3,10 +3,10 @@ extends RigidBody2D
 const STATE_NORMAL = "normal"
 const STATE_PLUGGED = "plugged"
 
-var state = null
+var state = STATE_NORMAL
 
 func _ready() -> void:
-	state = STATE_NORMAL
+	pass
 
 func _process(delta: float) -> void:
 	pass

@@ -71,8 +71,13 @@ interact={
 
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Platform"
-2d_physics/layer_3="Cord"
-2d_physics/layer_4="Outlet"
+2d_physics/layer_3="Cord_Unplugged"
+2d_physics/layer_4="Cord_Plugged"
+2d_physics/layer_5="Outlet"
+
+[physics]
+
+common/physics_ticks_per_second=120
 
 [rendering]
 

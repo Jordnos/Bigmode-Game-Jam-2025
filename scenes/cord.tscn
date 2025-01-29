@@ -6,40 +6,106 @@
 [ext_resource type="PackedScene" uid="uid://brp5trv2od13a" path="res://scenes/plug.tscn" id="4_d8m60"]
 
 [node name="Cord" type="Node2D"]
-position = Vector2(0, -258)
 script = ExtResource("1_cavsf")
 
+[node name="CordSegment" parent="." instance=ExtResource("1_xqsaq")]
+position = Vector2(0, 16)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="CordSegment"]
+position = Vector2(0, 16)
+node_a = NodePath("..")
+node_b = NodePath("../../CordSegment2")
+softness = 0.3
+
+[node name="CordSegment2" parent="." instance=ExtResource("1_xqsaq")]
+position = Vector2(0, 48)
+collision_mask = 18
+
+[node name="PinJoint2D" type="PinJoint2D" parent="CordSegment2"]
+position = Vector2(0, 16)
+node_a = NodePath("..")
+node_b = NodePath("../../CordSegment3")
+softness = 0.3
+
+[node name="CordSegment3" parent="." instance=ExtResource("1_xqsaq")]
+position = Vector2(0, 80)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="CordSegment3"]
+position = Vector2(0, 16)
+node_a = NodePath("..")
+node_b = NodePath("../../CordSegment4")
+softness = 0.3
+
+[node name="CordSegment4" parent="." instance=ExtResource("1_xqsaq")]
+position = Vector2(0, 112)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="CordSegment4"]
+position = Vector2(0, 16)
+node_a = NodePath("..")
+node_b = NodePath("../../CordSegment5")
+softness = 0.3
+
+[node name="CordSegment5" parent="." instance=ExtResource("1_xqsaq")]
+position = Vector2(0, 144)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="CordSegment5"]
+position = Vector2(0, 16)
+node_a = NodePath("..")
+node_b = NodePath("../../CordSegment6")
+softness = 0.3
+
+[node name="CordSegment6" parent="." instance=ExtResource("1_xqsaq")]
+position = Vector2(0, 176)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="CordSegment6"]
+position = Vector2(0, 16)
+node_a = NodePath("..")
+node_b = NodePath("../../CordSegment7")
+softness = 0.3
+
+[node name="CordSegment7" parent="." instance=ExtResource("1_xqsaq")]
+position = Vector2(0, 208)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="CordSegment7"]
+position = Vector2(0, 16)
+node_a = NodePath("..")
+node_b = NodePath("../../CordSegment8")
+softness = 0.3
+
+[node name="CordSegment8" parent="." instance=ExtResource("1_xqsaq")]
+position = Vector2(0, 240)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="CordSegment8"]
+position = Vector2(0, 16)
+node_a = NodePath("..")
+node_b = NodePath("../../CordSegment9")
+softness = 0.3
+
+[node name="CordSegment9" parent="." instance=ExtResource("1_xqsaq")]
+position = Vector2(0, 272)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="CordSegment9"]
+position = Vector2(0, 16)
+node_a = NodePath("..")
+node_b = NodePath("../../CordSegment10")
+softness = 0.3
+
+[node name="CordSegment10" parent="." instance=ExtResource("1_xqsaq")]
+position = Vector2(0, 304)
+
 [node name="CordAnchor" parent="." instance=ExtResource("2_a5gsj")]
-position = Vector2(0, -126)
+position = Vector2(0, -1)
 collision_mask = 4
 
 [node name="PinJoint2D" type="PinJoint2D" parent="CordAnchor"]
 node_a = NodePath("..")
 node_b = NodePath("../../CordSegment")
-
-[node name="CordSegment" parent="." instance=ExtResource("1_xqsaq")]
-position = Vector2(0, -62)
-
-[node name="PinJoint2D2" type="PinJoint2D" parent="CordSegment"]
-position = Vector2(0, 64)
-node_a = NodePath("..")
-node_b = NodePath("../../CordSegment2")
-
-[node name="CordSegment2" parent="." instance=ExtResource("1_xqsaq")]
-position = Vector2(0, 66)
-
-[node name="PinJoint2D3" type="PinJoint2D" parent="CordSegment2"]
-position = Vector2(0, 64)
-node_a = NodePath("..")
-node_b = NodePath("../../CordSegment3")
-
-[node name="CordSegment3" parent="." instance=ExtResource("1_xqsaq")]
-position = Vector2(0, 194)
-
-[node name="PinJoint2D" type="PinJoint2D" parent="CordSegment3"]
-position = Vector2(0, 64)
-node_a = NodePath("..")
-node_b = NodePath("../../Plug")
+softness = 0.3
 
 [node name="Plug" parent="." instance=ExtResource("4_d8m60")]
-position = Vector2(0, 258)
+position = Vector2(0, 319)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Plug"]
+node_a = NodePath("../../CordSegment10")
+node_b = NodePath("..")
+softness = 0.3

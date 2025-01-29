@@ -3,15 +3,15 @@
 [ext_resource type="Texture2D" uid="uid://da0m6qcahaaxc" path="res://assets/icon.svg" id="1_x5h06"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iiue7"]
-size = Vector2(40, 40)
+size = Vector2(32, 32)
 
 [node name="CordAnchor" type="StaticBody2D"]
 collision_layer = 4
 collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1.90735e-06, 1.90735e-06)
-scale = Vector2(0.3125, 0.3125)
+position = Vector2(-1.19209e-07, 2.38419e-07)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_x5h06")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

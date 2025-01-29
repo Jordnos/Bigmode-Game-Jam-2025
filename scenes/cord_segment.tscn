@@ -2,17 +2,19 @@
 
 [ext_resource type="Texture2D" uid="uid://da0m6qcahaaxc" path="res://assets/icon.svg" id="2_2vtae"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bncla"]
-size = Vector2(20, 128)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sku6e"]
+radius = 2.0
+height = 34.0
 
 [node name="CordSegment" type="RigidBody2D"]
 collision_layer = 4
 collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_bncla")
+mass = 0.4
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1.90735e-06, 0)
-scale = Vector2(0.15625, 1)
+scale = Vector2(0.15625, 0.25)
 texture = ExtResource("2_2vtae")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_sku6e")
