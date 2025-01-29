@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://stu26oaioiwv"]
 
-[ext_resource type="PackedScene" uid="uid://dlig8qwhnjxum" path="res://scenes/player.tscn" id="1_2w8wb"]
-[ext_resource type="Script" path="res://scripts/world.gd" id="1_q8kmr"]
-[ext_resource type="PackedScene" uid="uid://d23qavoltn7se" path="res://scenes/cord.tscn" id="2_jvqg4"]
-[ext_resource type="PackedScene" uid="uid://bxlm2o2kraas3" path="res://scenes/outlet.tscn" id="4_l53c6"]
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_nn26c"]
+[ext_resource type="PackedScene" uid="uid://d23qavoltn7se" path="res://scenes/cord.tscn" id="2_bodpp"]
+[ext_resource type="PackedScene" uid="uid://bxlm2o2kraas3" path="res://scenes/outlet.tscn" id="3_lr65h"]
+[ext_resource type="PackedScene" uid="uid://dlig8qwhnjxum" path="res://scenes/player.tscn" id="4_g7iii"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_7srw1"]
 size = Vector2(1000, 100)
@@ -11,8 +11,8 @@ size = Vector2(1000, 100)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cf8ic"]
 size = Vector2(1148, 97)
 
-[node name="World" type="Node2D"]
-script = ExtResource("1_q8kmr")
+[node name="Level0" type="Node2D"]
+script = ExtResource("1_nn26c")
 
 [node name="Platform" type="StaticBody2D" parent="."]
 position = Vector2(179, -1)
@@ -29,7 +29,7 @@ position = Vector2(574, 592.5)
 shape = SubResource("RectangleShape2D_cf8ic")
 
 [node name="Platform2" type="StaticBody2D" parent="."]
-position = Vector2(1367, -231)
+position = Vector2(1349, -224)
 collision_layer = 2
 collision_mask = 7
 
@@ -42,15 +42,15 @@ mesh = SubResource("QuadMesh_7srw1")
 position = Vector2(574, 592.5)
 shape = SubResource("RectangleShape2D_cf8ic")
 
-[node name="Cord" parent="." instance=ExtResource("2_jvqg4")]
-position = Vector2(1331, 374)
-rotation = 1.29852
+[node name="Cord" parent="." instance=ExtResource("2_bodpp")]
+position = Vector2(1182, 422)
+rotation = 1.4748
 
-[node name="Outlet" parent="." instance=ExtResource("4_l53c6")]
-position = Vector2(1027, 455)
+[node name="Outlet" parent="." instance=ExtResource("3_lr65h")]
+position = Vector2(1073, 458)
 
-[node name="Outlet2" parent="." instance=ExtResource("4_l53c6")]
-position = Vector2(317, 503)
+[node name="Outlet2" parent="." instance=ExtResource("3_lr65h")]
+position = Vector2(372, 419)
 
-[node name="Player" parent="." instance=ExtResource("1_2w8wb")]
+[node name="Player" parent="." instance=ExtResource("4_g7iii")]
 position = Vector2(642, 454)
