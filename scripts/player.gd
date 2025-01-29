@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var SPEED = 350.0
 @export var JUMP_VELOCITY = -500.0
 
-@onready var interact_area = $Area2D
+@onready var interact_area: Area2D = $Area2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 var power = 0
@@ -26,21 +26,28 @@ func _process(delta: float) -> void:
 			unplug_from_cord()
 
 	if Input.is_action_just_pressed("interact"):
-		if interact_target and interact_target.is_in_group("outlet"):  # assume only interactable is outlet rn
+		if not interact_target:
+			return
+
+		if interact_target.is_in_group("outlet"):
 			if interact_target.get_state() == interact_target.STATE_NORMAL:
 				if grab_joint: # plug if holding cord
 					unplug_from_cord()
 					interact_target.plug(grab_target)
 				else:
+					var power_gain = interact_target.take_power()
+					if power_gain == 0:
+						print("no power up sadge")
+					else:
+						print("POWER UP ANIMATION")
 					power += interact_target.take_power()
-					print(power)
 
 			elif interact_target.get_state() == interact_target.STATE_PLUGGED:
 				interact_target.unplug()
-		elif interact_target and interact_target.is_in_group("door"):
-			print("HI")
-			print(Global.go_to_next_level())
-			
+		elif interact_target.is_in_group("door"):
+			if Global.go_to_next_level():
+				power = 0
+				print("PLAY POV TRANSITION SCENE")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -88,7 +95,6 @@ func _on_interactable_area_body_entered(body: Node) -> void:
 		grab_target = body
 	if body.is_in_group("interactable"):
 		interact_target = body
-		print(interact_target.name)
 
 func _on_interactable_area_body_exited(body: Node) -> void:
 	if not grab_joint and body.is_in_group("grabbable"):
