@@ -12,7 +12,12 @@ func _ready() -> void:
 	pass
 
 func _process(delta: float) -> void:
-	pass
+	if Input.is_action_just_pressed("restart"):
+		reset_level
+
+func reset_level() -> void:
+	get_tree().reload_current_scene()
+	player_manager.respawn()
 
 func set_player_manager(node: Node2D) -> void:
 	player_manager = node

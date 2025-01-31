@@ -21,7 +21,6 @@ func _ready() -> void:
 	
 func spawn_character(scene: PackedScene):
 	if current_character:
-		print("SWAPPIN")
 		position = current_character.global_position
 		current_character.queue_free()
 
@@ -47,6 +46,7 @@ func toggle_character():
 	else:
 		spawn_character(character_body_scene)
 
+# for debugging only**
 func _input(event):
 	if event.is_action_pressed("toggle_physics"):
 		toggle_character()

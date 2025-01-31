@@ -1,10 +1,27 @@
 [gd_scene load_steps=9 format=3 uid="uid://stu26oaioiwv"]
 
-[ext_resource type="Script" path="res://scripts/level.gd" id="1_nn26c"]
 [ext_resource type="PackedScene" uid="uid://nolw53c12th" path="res://scenes/door.tscn" id="2_3c0m2"]
 [ext_resource type="PackedScene" uid="uid://d23qavoltn7se" path="res://scenes/cord.tscn" id="2_bodpp"]
 [ext_resource type="PackedScene" uid="uid://bxlm2o2kraas3" path="res://scenes/outlet.tscn" id="3_lr65h"]
 [ext_resource type="PackedScene" uid="uid://dwgjarefunsvw" path="res://scenes/player_manager.tscn" id="4_4sepx"]
+
+[sub_resource type="GDScript" id="GDScript_k3iqs"]
+script/source = "extends Node2D
+
+var player_manager: Node2D
+
+func _ready() -> void:
+	player_manager = $PlayerManager
+	Global.set_player_manager(player_manager)
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed(\"restart\"):
+		restart()
+
+func restart() -> void:
+	get_tree().reload_current_scene()
+	player_manager.respawn()
+"
 
 [sub_resource type="QuadMesh" id="QuadMesh_7srw1"]
 size = Vector2(1000, 100)
@@ -16,7 +33,7 @@ size = Vector2(1269, 109)
 size = Vector2(1036.5, 97)
 
 [node name="Level0" type="Node2D"]
-script = ExtResource("1_nn26c")
+script = SubResource("GDScript_k3iqs")
 
 [node name="Door" parent="." instance=ExtResource("2_3c0m2")]
 position = Vector2(1635, 260)
