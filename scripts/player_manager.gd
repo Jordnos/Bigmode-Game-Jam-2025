@@ -17,6 +17,7 @@ var interact_target = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.set_player_manager(self)
 	spawn_character(character_body_scene)
 	
 func spawn_character(scene: PackedScene):
@@ -52,7 +53,6 @@ func _input(event):
 		toggle_character()
 
 func _process(delta: float) -> void:
-	#print(interact_target)
 	if Input.is_action_just_pressed("grab"):
 		if not grab_joint and grab_target:
 			if grab_target.get_state() == grab_target.STATE_PLUGGED:

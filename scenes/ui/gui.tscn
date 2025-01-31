@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2845pe6lai81"]
+
+[ext_resource type="Texture2D" uid="uid://da0m6qcahaaxc" path="res://assets/icon.svg" id="1_ppx2j"]
+[ext_resource type="Script" path="res://scripts/texture_button.gd" id="2_c4dm0"]
+
+[node name="GUI" type="CanvasLayer"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(64, 64)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_ppx2j")
+
+[node name="PowerLevel" type="Label" parent="."]
+offset_left = 109.0
+offset_top = 22.0
+offset_right = 219.0
+offset_bottom = 105.0
+theme_override_font_sizes/font_size = 60
+text = "0"
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 1056.0
+offset_top = 32.0
+offset_right = 1184.0
+offset_bottom = 160.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("1_ppx2j")
+script = ExtResource("2_c4dm0")
+
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]

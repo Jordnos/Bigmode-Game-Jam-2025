@@ -5,12 +5,6 @@ extends CharacterBody2D
 
 @onready var manager: Node2D = get_parent()
 
-func _ready() -> void:
-	pass
-
-func _process(delta: float) -> void:
-	pass
-
 func _physics_process(delta: float) -> void:
 	# Add the gravity
 	if not is_on_floor():

@@ -1,28 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dght0ewmjrsr1"]
+[gd_scene load_steps=8 format=3 uid="uid://dght0ewmjrsr1"]
 
 [ext_resource type="PackedScene" uid="uid://d23qavoltn7se" path="res://scenes/cord.tscn" id="1_4rgh3"]
 [ext_resource type="PackedScene" uid="uid://bxlm2o2kraas3" path="res://scenes/outlet.tscn" id="2_50s5s"]
 [ext_resource type="PackedScene" uid="uid://nolw53c12th" path="res://scenes/door.tscn" id="2_up4p5"]
 [ext_resource type="PackedScene" uid="uid://dwgjarefunsvw" path="res://scenes/player_manager.tscn" id="4_483s0"]
 [ext_resource type="PackedScene" uid="uid://cppidd3pt453l" path="res://scenes/spike.tscn" id="6_qdkgl"]
-
-[sub_resource type="GDScript" id="GDScript_k3iqs"]
-script/source = "extends Node2D
-
-var player_manager: Node2D
-
-func _ready() -> void:
-	player_manager = $PlayerManager
-	Global.set_player_manager(player_manager)
-
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed(\"restart\"):
-		restart()
-
-func restart() -> void:
-	get_tree().reload_current_scene()
-	player_manager.respawn()
-"
 
 [sub_resource type="QuadMesh" id="QuadMesh_hmye1"]
 size = Vector2(1000, 100)
@@ -31,7 +13,6 @@ size = Vector2(1000, 100)
 size = Vector2(572, 97)
 
 [node name="Level1" type="Node2D"]
-script = SubResource("GDScript_k3iqs")
 
 [node name="Door" parent="." instance=ExtResource("2_up4p5")]
 position = Vector2(1464, 844)

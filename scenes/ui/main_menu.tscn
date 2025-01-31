@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2j5i3i63v4pt"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_f5ji0"]
+[ext_resource type="Texture2D" uid="uid://da0m6qcahaaxc" path="res://assets/icon.svg" id="2_u54qk"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_f5ji0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 1147.0
+offset_bottom = 643.0
+texture = ExtResource("2_u54qk")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 41.0
+offset_top = 86.0
+offset_right = 1112.0
+offset_bottom = 251.0
+theme_override_font_sizes/font_size = 120
+text = "Name of the game"
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 379.0
+offset_top = 284.0
+offset_right = 725.0
+offset_bottom = 375.0
+theme_override_constants/icon_max_width = 0
+theme_override_font_sizes/font_size = 60
+text = "Start Game"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

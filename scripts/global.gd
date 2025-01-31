@@ -13,7 +13,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("restart"):
-		reset_level
+		reset_level()
+	if is_instance_valid(player_manager): $"../GameManager/GUI/PowerLevel".text = str(player_manager.power)
 
 func reset_level() -> void:
 	get_tree().reload_current_scene()
@@ -22,11 +23,15 @@ func reset_level() -> void:
 func set_player_manager(node: Node2D) -> void:
 	player_manager = node
 
+func init_level(level_scene_path: String) -> bool:
+	if ResourceLoader.exists(level_scene_path):
+		get_tree().change_scene_to_file(level_scene_path)
+		return true
+	return false
+
 func go_to_next_level() -> bool:
 	if LEVEL_POWER_NEEDED.get(current_level, 0) <= player_manager.get_power():
 		current_level += 1
 		var level_scene_path = "res://scenes/levels/level_" + str(current_level) + ".tscn"
-		if ResourceLoader.exists(level_scene_path):
-			get_tree().change_scene_to_file(level_scene_path)
-			return true
+		return init_level(level_scene_path)
 	return false
