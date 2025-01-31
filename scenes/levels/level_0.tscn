@@ -1,63 +1,35 @@
-[gd_scene load_steps=9 format=3 uid="uid://stu26oaioiwv"]
+[gd_scene load_steps=7 format=3 uid="uid://stu26oaioiwv"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_nn26c"]
 [ext_resource type="PackedScene" uid="uid://nolw53c12th" path="res://scenes/door.tscn" id="2_3c0m2"]
 [ext_resource type="PackedScene" uid="uid://d23qavoltn7se" path="res://scenes/cord.tscn" id="2_bodpp"]
 [ext_resource type="PackedScene" uid="uid://bxlm2o2kraas3" path="res://scenes/outlet.tscn" id="3_lr65h"]
 [ext_resource type="PackedScene" uid="uid://dwgjarefunsvw" path="res://scenes/player_manager.tscn" id="4_4sepx"]
-
-[sub_resource type="QuadMesh" id="QuadMesh_7srw1"]
-size = Vector2(1000, 100)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cf8ic"]
-size = Vector2(1269, 109)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7dbm"]
-size = Vector2(1036.5, 97)
+[ext_resource type="PackedScene" uid="uid://deydta3egdcv1" path="res://scenes/platform.tscn" id="6_c6t54"]
 
 [node name="Level0" type="Node2D"]
 script = ExtResource("1_nn26c")
 
 [node name="Door" parent="." instance=ExtResource("2_3c0m2")]
-position = Vector2(1635, 260)
+position = Vector2(1498, 365)
 
-[node name="Platform" type="StaticBody2D" parent="."]
-position = Vector2(179, -1)
-collision_layer = 2
-collision_mask = 7
+[node name="Platform" parent="." instance=ExtResource("6_c6t54")]
+position = Vector2(512, 631)
+scale = Vector2(8, 1)
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform"]
-position = Vector2(403, 587.5)
-scale = Vector2(1.262, 1.11)
-mesh = SubResource("QuadMesh_7srw1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
-position = Vector2(399.5, 586.5)
-shape = SubResource("RectangleShape2D_cf8ic")
-
-[node name="Platform2" type="StaticBody2D" parent="."]
-position = Vector2(1349, -224)
-collision_layer = 2
-collision_mask = 7
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform2"]
-position = Vector2(518.75, 593)
-scale = Vector2(1.0365, 1)
-mesh = SubResource("QuadMesh_7srw1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
-position = Vector2(519.75, 592.5)
-shape = SubResource("RectangleShape2D_w7dbm")
-
-[node name="Cord" parent="." instance=ExtResource("2_bodpp")]
-position = Vector2(1286, 373)
-rotation = 1.309
+[node name="Platform2" parent="." instance=ExtResource("6_c6t54")]
+position = Vector2(1665, 445)
+scale = Vector2(8, 1)
 
 [node name="Outlet" parent="." instance=ExtResource("3_lr65h")]
-position = Vector2(977, 458)
+position = Vector2(801, 540)
 
 [node name="Outlet2" parent="." instance=ExtResource("3_lr65h")]
-position = Vector2(372, 419)
+position = Vector2(156, 569)
+
+[node name="Cord" parent="." instance=ExtResource("2_bodpp")]
+position = Vector2(1110, 455)
+rotation = 1.309
 
 [node name="PlayerManager" parent="." groups=["player"] instance=ExtResource("4_4sepx")]
-position = Vector2(573, 443)
+position = Vector2(320, 572)

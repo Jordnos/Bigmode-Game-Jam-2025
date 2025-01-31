@@ -1,56 +1,27 @@
-[gd_scene load_steps=8 format=3 uid="uid://dght0ewmjrsr1"]
+[gd_scene load_steps=7 format=3 uid="uid://dght0ewmjrsr1"]
 
 [ext_resource type="PackedScene" uid="uid://d23qavoltn7se" path="res://scenes/cord.tscn" id="1_4rgh3"]
 [ext_resource type="PackedScene" uid="uid://bxlm2o2kraas3" path="res://scenes/outlet.tscn" id="2_50s5s"]
+[ext_resource type="PackedScene" uid="uid://deydta3egdcv1" path="res://scenes/platform.tscn" id="2_m6pn8"]
 [ext_resource type="PackedScene" uid="uid://nolw53c12th" path="res://scenes/door.tscn" id="2_up4p5"]
 [ext_resource type="PackedScene" uid="uid://dwgjarefunsvw" path="res://scenes/player_manager.tscn" id="4_483s0"]
 [ext_resource type="PackedScene" uid="uid://cppidd3pt453l" path="res://scenes/spike.tscn" id="6_qdkgl"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_hmye1"]
-size = Vector2(1000, 100)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ydhf"]
-size = Vector2(572, 97)
-
 [node name="Level1" type="Node2D"]
 
 [node name="Door" parent="." instance=ExtResource("2_up4p5")]
-position = Vector2(1464, 844)
+position = Vector2(1528, 788)
 
-[node name="Platform" type="StaticBody2D" parent="."]
-position = Vector2(1, 0)
-collision_layer = 2
-collision_mask = 7
+[node name="Platform" parent="." instance=ExtResource("2_m6pn8")]
+position = Vector2(265, 630)
+scale = Vector2(4.12, 1)
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform"]
-position = Vector2(286.25, 593)
-scale = Vector2(0.5715, 1)
-mesh = SubResource("QuadMesh_hmye1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
-position = Vector2(286, 592.5)
-shape = SubResource("RectangleShape2D_4ydhf")
-
-[node name="Platform2" type="StaticBody2D" parent="."]
-position = Vector2(1034, 351)
-rotation = -0.00277327
-collision_layer = 2
-collision_mask = 7
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform2"]
-position = Vector2(286.25, 593)
-scale = Vector2(0.5715, 1)
-mesh = SubResource("QuadMesh_hmye1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
-position = Vector2(286, 592.5)
-shape = SubResource("RectangleShape2D_4ydhf")
-
-[node name="Cord" parent="." instance=ExtResource("1_4rgh3")]
-position = Vector2(654, 518)
+[node name="Platform2" parent="." instance=ExtResource("2_m6pn8")]
+position = Vector2(1356, 868)
+scale = Vector2(4.12, 1)
 
 [node name="Outlet" parent="." instance=ExtResource("2_50s5s")]
-position = Vector2(1101, 819)
+position = Vector2(1249, 809)
 
 [node name="PlayerManager" parent="." instance=ExtResource("4_483s0")]
 position = Vector2(149, 460)
@@ -58,5 +29,8 @@ position = Vector2(149, 460)
 [node name="SpikeLayer" type="Node" parent="." groups=["danger"]]
 
 [node name="Spike" parent="SpikeLayer" instance=ExtResource("6_qdkgl")]
-position = Vector2(995, 1020)
-scale = Vector2(100, 1)
+position = Vector2(802, 1009)
+scale = Vector2(80, 0.8)
+
+[node name="Cord" parent="." instance=ExtResource("1_4rgh3")]
+position = Vector2(654, 518)
