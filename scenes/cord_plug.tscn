@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://brp5trv2od13a"]
 
-[ext_resource type="Script" path="res://scripts/plug.gd" id="1_ndy6o"]
-[ext_resource type="Texture2D" uid="uid://da0m6qcahaaxc" path="res://assets/icon.svg" id="1_o6ser"]
+[ext_resource type="Script" path="res://scripts/plug.gd" id="1_rh1yj"]
+[ext_resource type="Texture2D" uid="uid://da0m6qcahaaxc" path="res://assets/icon.svg" id="2_u0i5i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_78v0l"]
 size = Vector2(64, 64)
@@ -9,16 +9,19 @@ size = Vector2(64, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_odkw6"]
 size = Vector2(64, 64)
 
-[node name="RigidBody2D" type="RigidBody2D" groups=["grabbable"]]
+[node name="CordPlug" type="RigidBody2D" groups=["grabbable"]]
 collision_layer = 4
 collision_mask = 0
+mass = 0.4
 lock_rotation = true
-script = ExtResource("1_ndy6o")
+linear_damp = 0.5
+angular_damp = 0.5
+script = ExtResource("1_rh1yj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(9.53674e-07, -3.8147e-06)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_o6ser")
+texture = ExtResource("2_u0i5i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_78v0l")

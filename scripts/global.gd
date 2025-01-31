@@ -1,7 +1,7 @@
 extends Node
 
 var current_level = 0
-var player = null
+var player_manager = null
 
 const LEVEL_POWER_NEEDED = {
 	0: 2,
@@ -14,11 +14,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func set_player(player_node: CharacterBody2D) -> void:
-	player = player_node
+func set_player_manager(node: Node2D) -> void:
+	player_manager = node
 
 func go_to_next_level() -> bool:
-	if LEVEL_POWER_NEEDED.get(current_level, 0) <= player.get_power():
+	if LEVEL_POWER_NEEDED.get(current_level, 0) <= player_manager.get_power():
 		current_level += 1
 		var level_scene_path = "res://scenes/levels/level_" + str(current_level) + ".tscn"
 		if ResourceLoader.exists(level_scene_path):

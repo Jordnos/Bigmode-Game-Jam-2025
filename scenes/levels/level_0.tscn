@@ -1,16 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://stu26oaioiwv"]
+[gd_scene load_steps=9 format=3 uid="uid://stu26oaioiwv"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_nn26c"]
 [ext_resource type="PackedScene" uid="uid://nolw53c12th" path="res://scenes/door.tscn" id="2_3c0m2"]
 [ext_resource type="PackedScene" uid="uid://d23qavoltn7se" path="res://scenes/cord.tscn" id="2_bodpp"]
 [ext_resource type="PackedScene" uid="uid://bxlm2o2kraas3" path="res://scenes/outlet.tscn" id="3_lr65h"]
-[ext_resource type="PackedScene" uid="uid://dlig8qwhnjxum" path="res://scenes/player.tscn" id="4_g7iii"]
+[ext_resource type="PackedScene" uid="uid://dwgjarefunsvw" path="res://scenes/player_manager.tscn" id="4_4sepx"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_7srw1"]
 size = Vector2(1000, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cf8ic"]
-size = Vector2(1148, 97)
+size = Vector2(1269, 109)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7dbm"]
+size = Vector2(1036.5, 97)
 
 [node name="Level0" type="Node2D"]
 script = ExtResource("1_nn26c")
@@ -24,12 +27,12 @@ collision_layer = 2
 collision_mask = 7
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Platform"]
-position = Vector2(574, 593)
-scale = Vector2(1.147, 1)
+position = Vector2(403, 587.5)
+scale = Vector2(1.262, 1.11)
 mesh = SubResource("QuadMesh_7srw1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
-position = Vector2(574, 592.5)
+position = Vector2(399.5, 586.5)
 shape = SubResource("RectangleShape2D_cf8ic")
 
 [node name="Platform2" type="StaticBody2D" parent="."]
@@ -38,13 +41,13 @@ collision_layer = 2
 collision_mask = 7
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Platform2"]
-position = Vector2(574, 593)
-scale = Vector2(1.147, 1)
+position = Vector2(518.75, 593)
+scale = Vector2(1.0365, 1)
 mesh = SubResource("QuadMesh_7srw1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
-position = Vector2(574, 592.5)
-shape = SubResource("RectangleShape2D_cf8ic")
+position = Vector2(519.75, 592.5)
+shape = SubResource("RectangleShape2D_w7dbm")
 
 [node name="Cord" parent="." instance=ExtResource("2_bodpp")]
 position = Vector2(1286, 373)
@@ -56,5 +59,5 @@ position = Vector2(977, 458)
 [node name="Outlet2" parent="." instance=ExtResource("3_lr65h")]
 position = Vector2(372, 419)
 
-[node name="Player" parent="." instance=ExtResource("4_g7iii")]
-position = Vector2(642, 454)
+[node name="PlayerManager" parent="." groups=["player"] instance=ExtResource("4_4sepx")]
+position = Vector2(573, 443)

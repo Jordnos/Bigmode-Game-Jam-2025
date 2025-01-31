@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/cord.gd" id="1_cavsf"]
 [ext_resource type="PackedScene" uid="uid://c3u6fhllc6di4" path="res://scenes/cord_segment.tscn" id="1_xqsaq"]
 [ext_resource type="PackedScene" uid="uid://depa4g1bklech" path="res://scenes/cord_anchor.tscn" id="2_a5gsj"]
-[ext_resource type="PackedScene" uid="uid://brp5trv2od13a" path="res://scenes/plug.tscn" id="4_d8m60"]
+[ext_resource type="PackedScene" uid="uid://brp5trv2od13a" path="res://scenes/cord_plug.tscn" id="4_d8m60"]
 
 [node name="Cord" type="Node2D"]
 script = ExtResource("1_cavsf")
@@ -102,10 +102,10 @@ node_a = NodePath("..")
 node_b = NodePath("../../CordSegment")
 softness = 0.3
 
-[node name="Plug" parent="." instance=ExtResource("4_d8m60")]
+[node name="CordPlug" parent="." instance=ExtResource("4_d8m60")]
 position = Vector2(0, 319)
 
-[node name="PinJoint2D" type="PinJoint2D" parent="Plug"]
+[node name="PinJoint2D" type="PinJoint2D" parent="CordPlug"]
 node_a = NodePath("../../CordSegment10")
 node_b = NodePath("..")
 softness = 0.3
