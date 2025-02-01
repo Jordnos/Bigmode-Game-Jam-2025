@@ -32,4 +32,14 @@ theme_override_constants/icon_max_width = 0
 theme_override_font_sizes/font_size = 60
 text = "Start Game"
 
+[node name="Button2" type="Button" parent="CanvasLayer"]
+offset_left = 494.0
+offset_top = 403.0
+offset_right = 609.0
+offset_bottom = 494.0
+theme_override_font_sizes/font_size = 60
+text = "Exit
+"
+
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button2" to="." method="_on_button_2_pressed"]

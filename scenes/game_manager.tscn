@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b14auxqiwm81g"]
+[gd_scene load_steps=4 format=3 uid="uid://b14auxqiwm81g"]
 
 [ext_resource type="PackedScene" uid="uid://c2845pe6lai81" path="res://scenes/ui/gui.tscn" id="1_7ukm1"]
 [ext_resource type="PackedScene" uid="uid://b7xrs3l5ksc08" path="res://scenes/ui/pause_menu.tscn" id="2_4bcy7"]
+[ext_resource type="PackedScene" uid="uid://drrsad1yccbgb" path="res://scenes/ui/game_finished.tscn" id="3_hn0k2"]
 
 [node name="GameManager" type="Node"]
 
@@ -9,3 +10,5 @@
 visible = false
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_4bcy7")]
+
+[node name="GameFinished" parent="." instance=ExtResource("3_hn0k2")]
