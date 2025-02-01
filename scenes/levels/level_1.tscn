@@ -9,28 +9,61 @@
 
 [node name="Level1" type="Node2D"]
 
-[node name="Door" parent="." instance=ExtResource("2_up4p5")]
-position = Vector2(1528, 788)
-
-[node name="Platform" parent="." instance=ExtResource("2_m6pn8")]
-position = Vector2(265, 630)
-scale = Vector2(4.12, 1)
-
-[node name="Platform2" parent="." instance=ExtResource("2_m6pn8")]
-position = Vector2(1356, 868)
-scale = Vector2(4.12, 1)
-
-[node name="Outlet" parent="." instance=ExtResource("2_50s5s")]
-position = Vector2(1249, 809)
-
-[node name="PlayerManager" parent="." instance=ExtResource("4_483s0")]
-position = Vector2(149, 460)
-
-[node name="SpikeLayer" type="Node" parent="." groups=["danger"]]
+[node name="SpikeLayer" type="Node2D" parent="." groups=["danger"]]
 
 [node name="Spike" parent="SpikeLayer" instance=ExtResource("6_qdkgl")]
-position = Vector2(802, 1009)
-scale = Vector2(80, 0.8)
+position = Vector2(883, 669)
+scale = Vector2(16.2, 0.8)
+
+[node name="Spike2" parent="SpikeLayer" instance=ExtResource("6_qdkgl")]
+position = Vector2(401, 601)
+scale = Vector2(17.12, 0.8)
+
+[node name="PlatformLayer" type="Node2D" parent="."]
+
+[node name="Platform" parent="PlatformLayer" instance=ExtResource("2_m6pn8")]
+position = Vector2(606, 599)
+scale = Vector2(1.40093, 1)
+
+[node name="Platform4" parent="PlatformLayer" instance=ExtResource("2_m6pn8")]
+position = Vector2(181, 599)
+scale = Vector2(1.40093, 1)
+
+[node name="Platform2" parent="PlatformLayer" instance=ExtResource("2_m6pn8")]
+position = Vector2(1309, 667)
+scale = Vector2(4.12, 1)
+
+[node name="Platform3" parent="PlatformLayer" instance=ExtResource("2_m6pn8")]
+position = Vector2(1250, 460)
+scale = Vector2(1.8, 1)
+
+[node name="TutorialText" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="TutorialText"]
+offset_left = 707.0
+offset_top = 471.0
+offset_right = 898.0
+offset_bottom = 546.0
+text = "By controling you swing
+you can control where 
+you go when you let go
+"
+
+[node name="Label2" type="Label" parent="TutorialText"]
+offset_left = 231.0
+offset_top = 523.0
+offset_right = 422.0
+offset_bottom = 553.0
+text = "Don't touch the spikes!"
+
+[node name="Door" parent="." instance=ExtResource("2_up4p5")]
+position = Vector2(1481, 587)
+
+[node name="Outlet" parent="." instance=ExtResource("2_50s5s")]
+position = Vector2(1202, 608)
 
 [node name="Cord" parent="." instance=ExtResource("1_4rgh3")]
-position = Vector2(654, 518)
+position = Vector2(654, 146)
+
+[node name="PlayerManager" parent="." instance=ExtResource("4_483s0")]
+position = Vector2(168, 548)

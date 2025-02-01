@@ -11,25 +11,54 @@
 script = ExtResource("1_nn26c")
 
 [node name="Door" parent="." instance=ExtResource("2_3c0m2")]
-position = Vector2(1498, 365)
+position = Vector2(734, 301)
 
 [node name="Platform" parent="." instance=ExtResource("6_c6t54")]
-position = Vector2(512, 631)
-scale = Vector2(8, 1)
+position = Vector2(1015, 631)
+scale = Vector2(15.92, 1)
 
 [node name="Platform2" parent="." instance=ExtResource("6_c6t54")]
-position = Vector2(1665, 445)
-scale = Vector2(8, 1)
+position = Vector2(841, 375)
+scale = Vector2(3.08, 1)
+
+[node name="TutorialText" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="TutorialText"]
+offset_left = 771.0
+offset_top = 455.0
+offset_right = 962.0
+offset_bottom = 515.0
+text = "You can plug into a 
+cord to move it around."
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="TutorialText"]
+offset_left = 289.0
+offset_top = 474.0
+offset_right = 477.0
+offset_bottom = 531.0
+text = "Interact with the outlet 
+to take its power"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label3" type="Label" parent="TutorialText"]
+offset_left = 1386.0
+offset_top = 491.0
+offset_right = 1577.0
+offset_bottom = 551.0
+text = "Plug the cord in here to 
+make a platform!"
+metadata/_edit_use_anchors_ = true
 
 [node name="Outlet" parent="." instance=ExtResource("3_lr65h")]
-position = Vector2(801, 540)
+position = Vector2(1335, 557)
 
 [node name="Outlet2" parent="." instance=ExtResource("3_lr65h")]
-position = Vector2(156, 569)
+position = Vector2(456, 569)
 
 [node name="Cord" parent="." instance=ExtResource("2_bodpp")]
-position = Vector2(1110, 455)
-rotation = 1.309
+position = Vector2(1046, 420)
+rotation = 1.10654
 
 [node name="PlayerManager" parent="." groups=["player"] instance=ExtResource("4_4sepx")]
-position = Vector2(320, 572)
+position = Vector2(296, 574)

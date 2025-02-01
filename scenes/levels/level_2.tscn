@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://c0xet8gd2irl"]
+
+[ext_resource type="PackedScene" uid="uid://nolw53c12th" path="res://scenes/door.tscn" id="1_wvsng"]
+[ext_resource type="PackedScene" uid="uid://deydta3egdcv1" path="res://scenes/platform.tscn" id="2_8n0o5"]
+[ext_resource type="PackedScene" uid="uid://bxlm2o2kraas3" path="res://scenes/outlet.tscn" id="3_4tq14"]
+[ext_resource type="PackedScene" uid="uid://cppidd3pt453l" path="res://scenes/spike.tscn" id="4_pfat1"]
+[ext_resource type="PackedScene" uid="uid://d23qavoltn7se" path="res://scenes/cord.tscn" id="5_ssm5n"]
+[ext_resource type="PackedScene" uid="uid://dwgjarefunsvw" path="res://scenes/player_manager.tscn" id="6_5gx6l"]
+
+[node name="Level2" type="Node2D"]
+
+[node name="Door" parent="." instance=ExtResource("1_wvsng")]
+position = Vector2(2154, 458)
+
+[node name="Platform" parent="." instance=ExtResource("2_8n0o5")]
+position = Vector2(311, 262)
+scale = Vector2(4.2, 1)
+
+[node name="Platform2" parent="." instance=ExtResource("2_8n0o5")]
+position = Vector2(1982, 538)
+scale = Vector2(4.12, 1)
+
+[node name="Outlet" parent="." instance=ExtResource("3_4tq14")]
+position = Vector2(1875, 479)
+
+[node name="SpikeLayer" type="Node" parent="." groups=["danger"]]
+
+[node name="Spike" parent="SpikeLayer" instance=ExtResource("4_pfat1")]
+position = Vector2(804, 639)
+scale = Vector2(80, 0.8)
+
+[node name="Cord" parent="." instance=ExtResource("5_ssm5n")]
+position = Vector2(656, 148)
+
+[node name="Cord2" parent="." instance=ExtResource("5_ssm5n")]
+position = Vector2(1246, 148)
+
+[node name="PlayerManager" parent="." instance=ExtResource("6_5gx6l")]
+position = Vector2(291, 217)
