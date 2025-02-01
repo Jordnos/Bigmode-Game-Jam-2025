@@ -5,7 +5,9 @@ var player_manager = null
 
 const LEVEL_POWER_NEEDED = {
 	0: 2,
-	1: 1
+	1: 1,
+	2: 1,
+	3: 1
 }
 
 func _ready() -> void:

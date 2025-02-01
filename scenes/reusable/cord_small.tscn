@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://cm0nhxgvfef5q"]
+
+[ext_resource type="PackedScene" uid="uid://c3u6fhllc6di4" path="res://scenes/components/cord_segment.tscn" id="1_xuti4"]
+[ext_resource type="PackedScene" uid="uid://depa4g1bklech" path="res://scenes/components/cord_anchor.tscn" id="2_2vatr"]
+[ext_resource type="PackedScene" uid="uid://brp5trv2od13a" path="res://scenes/components/cord_plug.tscn" id="3_uulmf"]
+
+[node name="CordSmall" type="Node2D"]
+
+[node name="CordSegment" parent="." instance=ExtResource("1_xuti4")]
+position = Vector2(0, 16)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="CordSegment"]
+position = Vector2(0, 16)
+node_a = NodePath("..")
+node_b = NodePath("../../CordSegment2")
+softness = 0.3
+
+[node name="CordSegment2" parent="." instance=ExtResource("1_xuti4")]
+position = Vector2(0, 48)
+collision_mask = 18
+
+[node name="PinJoint2D" type="PinJoint2D" parent="CordSegment2"]
+position = Vector2(0, 16)
+node_a = NodePath("..")
+node_b = NodePath("../../CordSegment3")
+softness = 0.3
+
+[node name="CordSegment3" parent="." instance=ExtResource("1_xuti4")]
+position = Vector2(0, 80)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="CordSegment3"]
+position = Vector2(0, 16)
+node_a = NodePath("..")
+node_b = NodePath("../../CordSegment4")
+softness = 0.3
+
+[node name="CordSegment4" parent="." instance=ExtResource("1_xuti4")]
+position = Vector2(0, 112)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="CordSegment4"]
+position = Vector2(0, 16)
+node_a = NodePath("..")
+node_b = NodePath("../../CordSegment5")
+softness = 0.3
+
+[node name="CordSegment5" parent="." instance=ExtResource("1_xuti4")]
+position = Vector2(0, 144)
+
+[node name="CordAnchor" parent="." instance=ExtResource("2_2vatr")]
+position = Vector2(0, -1)
+collision_mask = 4
+
+[node name="PinJoint2D" type="PinJoint2D" parent="CordAnchor"]
+node_a = NodePath("..")
+node_b = NodePath("../../CordSegment")
+softness = 0.3
+
+[node name="CordPlug" parent="." instance=ExtResource("3_uulmf")]
+position = Vector2(0, 160)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="CordPlug"]
+node_a = NodePath("../../CordSegment5")
+node_b = NodePath("..")
+softness = 0.3

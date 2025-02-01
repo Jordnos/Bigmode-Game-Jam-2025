@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://stu26oaioiwv"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_nn26c"]
-[ext_resource type="PackedScene" uid="uid://nolw53c12th" path="res://scenes/door.tscn" id="2_3c0m2"]
-[ext_resource type="PackedScene" uid="uid://d23qavoltn7se" path="res://scenes/cord.tscn" id="2_bodpp"]
-[ext_resource type="PackedScene" uid="uid://bxlm2o2kraas3" path="res://scenes/outlet.tscn" id="3_lr65h"]
+[ext_resource type="PackedScene" uid="uid://nolw53c12th" path="res://scenes/reusable/door.tscn" id="2_3c0m2"]
+[ext_resource type="PackedScene" uid="uid://d23qavoltn7se" path="res://scenes/reusable/cord.tscn" id="2_bodpp"]
+[ext_resource type="PackedScene" uid="uid://bxlm2o2kraas3" path="res://scenes/reusable/outlet.tscn" id="3_lr65h"]
 [ext_resource type="PackedScene" uid="uid://dwgjarefunsvw" path="res://scenes/player_manager.tscn" id="4_4sepx"]
-[ext_resource type="PackedScene" uid="uid://deydta3egdcv1" path="res://scenes/platform.tscn" id="6_c6t54"]
+[ext_resource type="PackedScene" uid="uid://deydta3egdcv1" path="res://scenes/reusable/platform.tscn" id="6_c6t54"]
 
 [node name="Level0" type="Node2D"]
 script = ExtResource("1_nn26c")
@@ -33,12 +33,17 @@ cord to move it around."
 metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="TutorialText"]
-offset_left = 289.0
-offset_top = 474.0
-offset_right = 477.0
-offset_bottom = 531.0
+offset_left = 324.0
+offset_top = 368.0
+offset_right = 516.0
+offset_bottom = 547.0
 text = "Interact with the outlet 
-to take its power"
+to take its power. You
+can enter the door to 
+goto the next level 
+when you have enough
+power. You can check 
+progress on top left. "
 metadata/_edit_use_anchors_ = true
 
 [node name="Label3" type="Label" parent="TutorialText"]

@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://d23qavoltn7se"]
 
 [ext_resource type="Script" path="res://scripts/cord.gd" id="1_cavsf"]
-[ext_resource type="PackedScene" uid="uid://c3u6fhllc6di4" path="res://scenes/cord_segment.tscn" id="1_xqsaq"]
-[ext_resource type="PackedScene" uid="uid://depa4g1bklech" path="res://scenes/cord_anchor.tscn" id="2_a5gsj"]
-[ext_resource type="PackedScene" uid="uid://brp5trv2od13a" path="res://scenes/cord_plug.tscn" id="4_d8m60"]
+[ext_resource type="PackedScene" uid="uid://c3u6fhllc6di4" path="res://scenes/components/cord_segment.tscn" id="1_xqsaq"]
+[ext_resource type="PackedScene" uid="uid://depa4g1bklech" path="res://scenes/components/cord_anchor.tscn" id="2_a5gsj"]
+[ext_resource type="PackedScene" uid="uid://brp5trv2od13a" path="res://scenes/components/cord_plug.tscn" id="4_d8m60"]
 
 [node name="Cord" type="Node2D"]
 script = ExtResource("1_cavsf")
