@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://dhbxe7ihvq6cp"]
+
+[ext_resource type="PackedScene" uid="uid://cppidd3pt453l" path="res://scenes/reusable/spike.tscn" id="1_41upf"]
+[ext_resource type="PackedScene" uid="uid://deydta3egdcv1" path="res://scenes/reusable/platform.tscn" id="2_k1gx6"]
+[ext_resource type="PackedScene" uid="uid://nolw53c12th" path="res://scenes/reusable/door.tscn" id="3_te7pd"]
+[ext_resource type="PackedScene" uid="uid://bxlm2o2kraas3" path="res://scenes/reusable/outlet.tscn" id="4_s0shn"]
+[ext_resource type="PackedScene" uid="uid://d23qavoltn7se" path="res://scenes/reusable/cord.tscn" id="5_wuo6q"]
+[ext_resource type="PackedScene" uid="uid://cm0nhxgvfef5q" path="res://scenes/reusable/cord_small.tscn" id="6_cjkv8"]
+[ext_resource type="PackedScene" uid="uid://dwgjarefunsvw" path="res://scenes/player_manager.tscn" id="6_qx47m"]
+
+[node name="level_3" type="Node2D"]
+
+[node name="Door" parent="." instance=ExtResource("3_te7pd")]
+position = Vector2(125, 69)
+
+[node name="SpikeLayer" type="Node2D" parent="." groups=["danger"]]
+
+[node name="Spike" parent="SpikeLayer" instance=ExtResource("1_41upf")]
+position = Vector2(1017, 607)
+scale = Vector2(57.68, 0.8)
+
+[node name="PlatformLayer" type="Node2D" parent="."]
+
+[node name="Platform4" parent="PlatformLayer" instance=ExtResource("2_k1gx6")]
+position = Vector2(223, 599)
+scale = Vector2(3.48093, 1)
+
+[node name="Platform2" parent="PlatformLayer" instance=ExtResource("2_k1gx6")]
+position = Vector2(299, 141)
+scale = Vector2(4.12, 1)
+
+[node name="Outlet" parent="." instance=ExtResource("4_s0shn")]
+position = Vector2(878, 282)
+
+[node name="Cord" parent="." instance=ExtResource("5_wuo6q")]
+position = Vector2(590, 138)
+
+[node name="CordSmall" parent="." instance=ExtResource("6_cjkv8")]
+position = Vector2(1195, 96)
+
+[node name="PlayerManager" parent="." instance=ExtResource("6_qx47m")]
+position = Vector2(168, 548)
