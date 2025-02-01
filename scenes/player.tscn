@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-[gd_scene load_steps=32 format=3 uid="uid://dlig8qwhnjxum"]
-=======
 [gd_scene load_steps=22 format=3 uid="uid://dlig8qwhnjxum"]
->>>>>>> 6962dcce2694206db82246cf62a35fced83e4d42
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_c2fcw"]
 [ext_resource type="Texture2D" uid="uid://d3ph5lv36t7lk" path="res://assets/sprites/Sprite-0002-idle-Sheet.png" id="2_fvxq4"]
@@ -133,42 +129,30 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rxx74"]
-radius = 44.8649
-height = 115.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ktujs"]
+radius = 42.0
+height = 118.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 10
 script = ExtResource("1_c2fcw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-<<<<<<< HEAD
-position = Vector2(1.73104, -13.6235)
-scale = Vector2(-3.98319, 3.71103)
+position = Vector2(0, 23)
+scale = Vector2(-1.90106, 1.91218)
 sprite_frames = SubResource("SpriteFrames_iph32")
 animation = &"idle"
 autoplay = "idle"
-=======
-position = Vector2(-2, 16)
-scale = Vector2(-2.00326, 2.07941)
-sprite_frames = SubResource("SpriteFrames_iph32")
-animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.235602
->>>>>>> 6962dcce2694206db82246cf62a35fced83e4d42
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.268959, 0.37648)
-scale = Vector2(0.936145, 0.800001)
+position = Vector2(-2, 5)
 shape = SubResource("CapsuleShape2D_rxx74")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-5, 1)
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(-0.268959, 0.37648)
 collision_mask = 60
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-scale = Vector2(2.36, 2.36)
-shape = SubResource("CircleShape2D_ktujs")
+position = Vector2(-2, 5)
+shape = SubResource("CapsuleShape2D_rxx74")
