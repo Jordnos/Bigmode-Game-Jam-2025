@@ -18,9 +18,9 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("move_left", "move_right")
 	#Flip Sprite Direction
 	if direction > 0:
-		manager.animated_sprite_2d.flip_h = true
-	elif direction < 0: 
 		manager.animated_sprite_2d.flip_h = false
+	elif direction < 0: 
+		manager.animated_sprite_2d.flip_h = true
 
 	#Play animations
 	if is_on_floor():
