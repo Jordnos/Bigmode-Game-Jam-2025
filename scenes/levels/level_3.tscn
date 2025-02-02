@@ -22,8 +22,8 @@ scale = Vector2(57.68, 0.8)
 [node name="PlatformLayer" type="Node2D" parent="."]
 
 [node name="Platform4" parent="PlatformLayer" instance=ExtResource("2_k1gx6")]
-position = Vector2(223, 599)
-scale = Vector2(3.48093, 1)
+position = Vector2(259, 599)
+scale = Vector2(4.04093, 1)
 
 [node name="Platform2" parent="PlatformLayer" instance=ExtResource("2_k1gx6")]
 position = Vector2(299, 141)
@@ -39,4 +39,4 @@ position = Vector2(590, 138)
 position = Vector2(1195, 96)
 
 [node name="PlayerManager" parent="." instance=ExtResource("6_qx47m")]
-position = Vector2(168, 548)
+position = Vector2(147, 529)

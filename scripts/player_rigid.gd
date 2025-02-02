@@ -1,7 +1,7 @@
 # Character used when on rope / swinging for physics
 extends RigidBody2D
 
-@export var SPEED = 100.0
+@export var SPEED = 50
 
 @onready var manager: Node2D = get_parent()
 @onready var raycast: RayCast2D = $RayCast2D
@@ -17,9 +17,9 @@ func _physics_process(delta: float) -> void:
 	
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction > 0:
-		manager.animated_sprite_2d.flip_h = true
-	elif direction < 0: 
 		manager.animated_sprite_2d.flip_h = false
+	elif direction < 0: 
+		manager.animated_sprite_2d.flip_h = true
 
 	if Input.is_action_just_pressed("jump") and manager.grab_joint:
 		manager.unplug_from_cord()

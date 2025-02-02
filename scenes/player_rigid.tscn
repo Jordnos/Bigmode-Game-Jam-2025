@@ -107,7 +107,7 @@ animations = [{
 radius = 36.0
 height = 90.0
 
-[node name="PlayerRigid" type="RigidBody2D"]
+[node name="PlayerRigid" type="RigidBody2D" groups=["player"]]
 mass = 15.0
 lock_rotation = true
 script = ExtResource("1_1e2c1")
@@ -117,7 +117,7 @@ position = Vector2(0, 23)
 rotation = -3.14159
 scale = Vector2(1.90106, -1.91218)
 sprite_frames = SubResource("SpriteFrames_1f133")
-animation = &"jump"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
