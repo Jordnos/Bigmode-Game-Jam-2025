@@ -1,18 +1,19 @@
 [gd_scene load_steps=3 format=3 uid="uid://depa4g1bklech"]
 
-[ext_resource type="Texture2D" uid="uid://da0m6qcahaaxc" path="res://assets/icon.svg" id="1_x5h06"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iiue7"]
 size = Vector2(32, 32)
+
+[sub_resource type="QuadMesh" id="QuadMesh_bed5y"]
 
 [node name="CordAnchor" type="StaticBody2D"]
 collision_layer = 4
 collision_mask = 0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1.19209e-07, 2.38419e-07)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_x5h06")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_iiue7")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+modulate = Color(0.329412, 0.305882, 0.407843, 1)
+position = Vector2(-5.36442e-07, 1.37091e-06)
+scale = Vector2(32, 32)
+mesh = SubResource("QuadMesh_bed5y")

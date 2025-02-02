@@ -1,20 +1,49 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2845pe6lai81"]
+[gd_scene load_steps=11 format=3 uid="uid://c2845pe6lai81"]
 
-[ext_resource type="Texture2D" uid="uid://da0m6qcahaaxc" path="res://assets/icon.svg" id="1_ppx2j"]
+[ext_resource type="Theme" uid="uid://v3oox01micuf" path="res://assets/themes/text_theme.tres" id="1_a454x"]
+[ext_resource type="Texture2D" uid="uid://ciwikhblv1nc0" path="res://assets/themes/190521.png" id="2_2qmrd"]
 [ext_resource type="Script" path="res://scripts/texture_button.gd" id="2_c4dm0"]
+[ext_resource type="Script" path="res://scripts/button.gd" id="5_8k10m"]
+[ext_resource type="Theme" uid="uid://uq3tu1k2hlny" path="res://assets/themes/button_theme.tres" id="5_iyhwx"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_6jrs0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7pw1c"]
+bg_color = Color(0.329412, 0.305882, 0.407843, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nj14i"]
+bg_color = Color(0.329412, 0.305882, 0.407843, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hrpik"]
+bg_color = Color(0.329412, 0.305882, 0.407843, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekkdq"]
+bg_color = Color(0.329412, 0.305882, 0.407843, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [node name="GUI" type="CanvasLayer"]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(64, 64)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_ppx2j")
 
 [node name="PowerLevel" type="Label" parent="."]
 offset_left = 109.0
 offset_top = 22.0
 offset_right = 219.0
 offset_bottom = 105.0
+theme = ExtResource("1_a454x")
 theme_override_font_sizes/font_size = 60
 text = "0"
 
@@ -24,7 +53,47 @@ offset_top = 32.0
 offset_right = 1184.0
 offset_bottom = 160.0
 scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("1_ppx2j")
+texture_normal = ExtResource("2_2qmrd")
+ignore_texture_size = true
+stretch_mode = 0
 script = ExtResource("2_c4dm0")
 
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+modulate = Color(1, 0.831373, 0.639216, 1)
+position = Vector2(64, 64)
+scale = Vector2(62, 62)
+mesh = SubResource("QuadMesh_6jrs0")
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 0)
+offset_left = 34.0
+offset_top = 130.0
+offset_right = 234.0
+offset_bottom = 184.0
+theme = ExtResource("5_iyhwx")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_7pw1c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nj14i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hrpik")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ekkdq")
+text = "CONTROLS:"
+script = ExtResource("5_8k10m")
+
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 59.0
+offset_right = 195.0
+offset_bottom = 188.0
+theme = ExtResource("1_a454x")
+theme_override_font_sizes/font_size = 20
+text = "LEFT/RIGHT - move
+UP - interact
+Space - jump
+g - grab
+r - restart level
+"
+
 [connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="toggled" from="Button" to="Button" method="_on_toggled"]

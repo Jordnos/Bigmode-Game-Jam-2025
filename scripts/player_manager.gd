@@ -5,6 +5,7 @@ extends Node2D
 
 @export var SPEED = 350.0
 @export var JUMP_VELOCITY = -500.0
+@export var flash_color = Color("#ffd4a3")
 
 var current_character: Node2D
 var interact_area: Area2D
@@ -47,16 +48,22 @@ func toggle_character():
 	else:
 		spawn_character(character_body_scene)
 
-# for debugging only**
-func _input(event):
-	if event.is_action_pressed("toggle_physics"):
-		toggle_character()
-
 func _process(delta: float) -> void:
+	if interact_target and interact_target.is_in_group("outlet"):
+		var power_gain = interact_target.take_power()
+		if power_gain > 0:
+			power += power_gain
+			var original_modulate = modulate
+			modulate = flash_color
+			await get_tree().create_timer(0.5).timeout
+			modulate = original_modulate  # Reset to the original color
+		
+
 	if Input.is_action_just_pressed("grab"):
 		if not grab_joint and grab_target:
 			if grab_target.get_state() == grab_target.STATE_PLUGGED:
 				interact_target.unplug()
+				plug_into_cord()
 			else:
 				plug_into_cord()
 		elif grab_joint:
@@ -71,13 +78,6 @@ func _process(delta: float) -> void:
 				if grab_joint: # plug if holding cord
 					unplug_from_cord()
 					interact_target.plug(grab_target)
-				else:
-					var power_gain = interact_target.take_power()
-					if power_gain == 0:
-						print("no power up sadge")
-					else:
-						print("POWER UP ANIMATION")
-					power += power_gain
 
 			elif interact_target.get_state() == interact_target.STATE_PLUGGED:
 				interact_target.unplug()

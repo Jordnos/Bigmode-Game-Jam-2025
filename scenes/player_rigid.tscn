@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://hd4wl2tjx2tu"]
+[gd_scene load_steps=19 format=3 uid="uid://hd4wl2tjx2tu"]
 
 [ext_resource type="Script" path="res://scripts/player_rigid.gd" id="1_1e2c1"]
 [ext_resource type="Texture2D" uid="uid://d3ph5lv36t7lk" path="res://assets/sprites/Sprite-0002-idle-Sheet.png" id="1_tsfhv"]
@@ -107,8 +107,10 @@ animations = [{
 radius = 36.0
 height = 90.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_x0bgq"]
+
 [node name="PlayerRigid" type="RigidBody2D" groups=["player"]]
-mass = 15.0
+mass = 14.0
 lock_rotation = true
 script = ExtResource("1_1e2c1")
 
@@ -132,7 +134,8 @@ position = Vector2(0, 20)
 collision_mask = 60
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CapsuleShape2D_14jse")
+scale = Vector2(2.36, 2.36)
+shape = SubResource("CircleShape2D_x0bgq")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(0, 20)

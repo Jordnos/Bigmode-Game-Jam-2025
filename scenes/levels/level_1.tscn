@@ -1,13 +1,38 @@
-[gd_scene load_steps=7 format=3 uid="uid://dght0ewmjrsr1"]
+[gd_scene load_steps=8 format=3 uid="uid://dght0ewmjrsr1"]
 
 [ext_resource type="PackedScene" uid="uid://d23qavoltn7se" path="res://scenes/reusable/cord.tscn" id="1_4rgh3"]
 [ext_resource type="PackedScene" uid="uid://bxlm2o2kraas3" path="res://scenes/reusable/outlet.tscn" id="2_50s5s"]
 [ext_resource type="PackedScene" uid="uid://deydta3egdcv1" path="res://scenes/reusable/platform.tscn" id="2_m6pn8"]
 [ext_resource type="PackedScene" uid="uid://nolw53c12th" path="res://scenes/reusable/door.tscn" id="2_up4p5"]
+[ext_resource type="Theme" uid="uid://v3oox01micuf" path="res://assets/themes/text_theme.tres" id="3_k8hf6"]
 [ext_resource type="PackedScene" uid="uid://dwgjarefunsvw" path="res://scenes/player_manager.tscn" id="4_483s0"]
 [ext_resource type="PackedScene" uid="uid://cppidd3pt453l" path="res://scenes/reusable/spike.tscn" id="6_qdkgl"]
 
 [node name="Level1" type="Node2D"]
+
+[node name="Door" parent="." instance=ExtResource("2_up4p5")]
+position = Vector2(1481, 587)
+
+[node name="TutorialText" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="TutorialText"]
+offset_left = 707.0
+offset_top = 471.0
+offset_right = 898.0
+offset_bottom = 546.0
+theme = ExtResource("3_k8hf6")
+text = "By controling you swing
+you can control where 
+you go when you let go
+"
+
+[node name="Label2" type="Label" parent="TutorialText"]
+offset_left = 231.0
+offset_top = 523.0
+offset_right = 422.0
+offset_bottom = 553.0
+theme = ExtResource("3_k8hf6")
+text = "Don't touch the orange!"
 
 [node name="SpikeLayer" type="Node2D" parent="." groups=["danger"]]
 
@@ -37,33 +62,49 @@ scale = Vector2(4.12, 1)
 position = Vector2(1250, 460)
 scale = Vector2(1.8, 1)
 
-[node name="TutorialText" type="Node2D" parent="."]
-
-[node name="Label" type="Label" parent="TutorialText"]
-offset_left = 707.0
-offset_top = 471.0
-offset_right = 898.0
-offset_bottom = 546.0
-text = "By controling you swing
-you can control where 
-you go when you let go
-"
-
-[node name="Label2" type="Label" parent="TutorialText"]
-offset_left = 231.0
-offset_top = 523.0
-offset_right = 422.0
-offset_bottom = 553.0
-text = "Don't touch the spikes!"
-
-[node name="Door" parent="." instance=ExtResource("2_up4p5")]
-position = Vector2(1481, 587)
-
 [node name="Outlet" parent="." instance=ExtResource("2_50s5s")]
 position = Vector2(1202, 608)
 
 [node name="Cord" parent="." instance=ExtResource("1_4rgh3")]
-position = Vector2(654, 146)
+position = Vector2(654, 125)
+
+[node name="Bounds" type="Node2D" parent="."]
+
+[node name="Spike" parent="Bounds" instance=ExtResource("6_qdkgl")]
+position = Vector2(947, 33)
+scale = Vector2(95.84, 1)
+
+[node name="Spike2" parent="Bounds" instance=ExtResource("6_qdkgl")]
+position = Vector2(947, 933)
+scale = Vector2(95.84, 1)
+
+[node name="Spike3" parent="Bounds" instance=ExtResource("6_qdkgl")]
+position = Vector2(-3, 481)
+rotation = 1.5708
+scale = Vector2(48.04, 1)
+
+[node name="Spike4" parent="Bounds" instance=ExtResource("6_qdkgl")]
+position = Vector2(1898, 481)
+rotation = 1.5708
+scale = Vector2(47.48, 1)
+
+[node name="Platform" parent="Bounds" instance=ExtResource("2_m6pn8")]
+position = Vector2(947, 20)
+scale = Vector2(14.8, 1)
+
+[node name="Platform2" parent="Bounds" instance=ExtResource("2_m6pn8")]
+position = Vector2(947, 948)
+scale = Vector2(14.8, 1)
+
+[node name="Platform3" parent="Bounds" instance=ExtResource("2_m6pn8")]
+position = Vector2(-16, 484)
+rotation = 1.5708
+scale = Vector2(7.5, 1)
+
+[node name="Platform4" parent="Bounds" instance=ExtResource("2_m6pn8")]
+position = Vector2(1910, 484)
+rotation = 1.5708
+scale = Vector2(7.5, 1)
 
 [node name="PlayerManager" parent="." instance=ExtResource("4_483s0")]
 position = Vector2(168, 548)

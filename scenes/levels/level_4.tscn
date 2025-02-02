@@ -1,0 +1,110 @@
+[gd_scene load_steps=8 format=3 uid="uid://dwi0272vx8ape"]
+
+[ext_resource type="PackedScene" uid="uid://nolw53c12th" path="res://scenes/reusable/door.tscn" id="1_saba3"]
+[ext_resource type="PackedScene" uid="uid://cppidd3pt453l" path="res://scenes/reusable/spike.tscn" id="2_rbbwe"]
+[ext_resource type="PackedScene" uid="uid://deydta3egdcv1" path="res://scenes/reusable/platform.tscn" id="3_xnb7f"]
+[ext_resource type="PackedScene" uid="uid://bxlm2o2kraas3" path="res://scenes/reusable/outlet.tscn" id="4_0ha6d"]
+[ext_resource type="PackedScene" uid="uid://d23qavoltn7se" path="res://scenes/reusable/cord.tscn" id="5_xyh12"]
+[ext_resource type="PackedScene" uid="uid://cm0nhxgvfef5q" path="res://scenes/reusable/cord_small.tscn" id="6_cwce8"]
+[ext_resource type="PackedScene" uid="uid://dwgjarefunsvw" path="res://scenes/player_manager.tscn" id="7_y0xqw"]
+
+[node name="Level4" type="Node2D"]
+
+[node name="Door" parent="." instance=ExtResource("1_saba3")]
+position = Vector2(425, 326)
+
+[node name="SpikeLayer" type="Node2D" parent="." groups=["danger"]]
+position = Vector2(-3, 422)
+
+[node name="Spike2" parent="SpikeLayer" instance=ExtResource("2_rbbwe")]
+position = Vector2(990, -260)
+rotation = 1.5708
+scale = Vector2(13.28, 0.8)
+
+[node name="PlatformLayer" type="Node2D" parent="."]
+position = Vector2(-3, 422)
+
+[node name="Platform4" parent="PlatformLayer" instance=ExtResource("3_xnb7f")]
+position = Vector2(258, 620)
+scale = Vector2(4.04093, 1)
+
+[node name="Platform2" parent="PlatformLayer" instance=ExtResource("3_xnb7f")]
+position = Vector2(430, -18)
+scale = Vector2(1.4, 1)
+
+[node name="Platform3" parent="PlatformLayer" instance=ExtResource("3_xnb7f")]
+position = Vector2(1730, 626)
+scale = Vector2(5.56521, 1)
+
+[node name="Platform5" parent="PlatformLayer" instance=ExtResource("3_xnb7f")]
+position = Vector2(2270, 549)
+scale = Vector2(1.44001, 1)
+
+[node name="Platform6" parent="PlatformLayer" instance=ExtResource("3_xnb7f")]
+position = Vector2(2030, 426)
+scale = Vector2(0.76, 1)
+
+[node name="OutletLayer" type="Node2D" parent="."]
+position = Vector2(-3, 422)
+
+[node name="Outlet" parent="OutletLayer" instance=ExtResource("4_0ha6d")]
+position = Vector2(669, 60)
+
+[node name="Outlet2" parent="OutletLayer" instance=ExtResource("4_0ha6d")]
+position = Vector2(1736, 334)
+
+[node name="CordLayer" type="Node2D" parent="."]
+position = Vector2(-3, 422)
+
+[node name="Cord" parent="CordLayer" instance=ExtResource("5_xyh12")]
+position = Vector2(991, 41)
+
+[node name="CordSmall" parent="CordLayer" instance=ExtResource("6_cwce8")]
+position = Vector2(692, 289)
+
+[node name="CordSmall2" parent="CordLayer" instance=ExtResource("6_cwce8")]
+position = Vector2(1580, 282)
+
+[node name="Cord2" parent="CordLayer" instance=ExtResource("5_xyh12")]
+position = Vector2(1623, -268)
+
+[node name="PlayerManager" parent="." instance=ExtResource("7_y0xqw")]
+position = Vector2(127, 951)
+
+[node name="Bounds" type="Node2D" parent="."]
+
+[node name="Spike" parent="Bounds" instance=ExtResource("2_rbbwe")]
+position = Vector2(1342, 33)
+scale = Vector2(135.08, 1)
+
+[node name="Spike2" parent="Bounds" instance=ExtResource("2_rbbwe")]
+position = Vector2(1342, 1237)
+scale = Vector2(134.56, 1)
+
+[node name="Spike3" parent="Bounds" instance=ExtResource("2_rbbwe")]
+position = Vector2(-3, 632)
+rotation = 1.5708
+scale = Vector2(59.56, 1)
+
+[node name="Spike4" parent="Bounds" instance=ExtResource("2_rbbwe")]
+position = Vector2(2681, 638)
+rotation = 1.5708
+scale = Vector2(60.08, 1)
+
+[node name="Platform" parent="Bounds" instance=ExtResource("3_xnb7f")]
+position = Vector2(1335, 20)
+scale = Vector2(21.2, 1)
+
+[node name="Platform2" parent="Bounds" instance=ExtResource("3_xnb7f")]
+position = Vector2(1340, 1250)
+scale = Vector2(21.32, 1)
+
+[node name="Platform3" parent="Bounds" instance=ExtResource("3_xnb7f")]
+position = Vector2(-16, 635)
+rotation = 1.5708
+scale = Vector2(9.82, 1)
+
+[node name="Platform4" parent="Bounds" instance=ExtResource("3_xnb7f")]
+position = Vector2(2693, 633)
+rotation = 1.5708
+scale = Vector2(9.9, 1)

@@ -7,7 +7,8 @@ const LEVEL_POWER_NEEDED = {
 	0: 2,
 	1: 1,
 	2: 1,
-	3: 1
+	3: 1,
+	4: 2
 }
 
 func _ready() -> void:

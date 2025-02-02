@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://c2j5i3i63v4pt"]
+[gd_scene load_steps=5 format=3 uid="uid://c2j5i3i63v4pt"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_f5ji0"]
-[ext_resource type="Texture2D" uid="uid://da0m6qcahaaxc" path="res://assets/icon.svg" id="2_u54qk"]
 [ext_resource type="Theme" uid="uid://v3oox01micuf" path="res://assets/themes/text_theme.tres" id="3_e6s87"]
 [ext_resource type="Theme" uid="uid://uq3tu1k2hlny" path="res://assets/themes/button_theme.tres" id="3_rlnhw"]
 
@@ -18,18 +17,10 @@ script = ExtResource("1_f5ji0")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.329412, 0.305882, 0.407843, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
-visible = false
-offset_left = 86.0
-offset_top = 95.0
-offset_right = 126.0
-offset_bottom = 135.0
-scale = Vector2(24.7132, 11.8732)
-color = Color(0.12549, 0.235294, 0.337255, 1)
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
 anchors_preset = 8
@@ -51,14 +42,6 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-visible = false
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 1147.0
-offset_bottom = 643.0
-texture = ExtResource("2_u54qk")
-
 [node name="Label" type="Label" parent="CanvasLayer"]
 anchors_preset = 10
 anchor_right = 1.0
@@ -72,7 +55,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="Button" type="Button" parent="CanvasLayer"]
+[node name="Start" type="Button" parent="CanvasLayer"]
 custom_minimum_size = Vector2(800, 0)
 anchors_preset = 8
 anchor_left = 0.5
@@ -89,7 +72,7 @@ theme = ExtResource("3_rlnhw")
 text = "Start Game"
 icon_alignment = 1
 
-[node name="Button2" type="Button" parent="CanvasLayer"]
+[node name="Exit" type="Button" parent="CanvasLayer"]
 custom_minimum_size = Vector2(800, 0)
 anchors_preset = 8
 anchor_left = 0.5
@@ -106,5 +89,5 @@ theme = ExtResource("3_rlnhw")
 text = "Exit
 "
 
-[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Start" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Exit" to="." method="_on_button_2_pressed"]

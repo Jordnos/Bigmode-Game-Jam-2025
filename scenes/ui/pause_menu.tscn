@@ -1,7 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7xrs3l5ksc08"]
+[gd_scene load_steps=5 format=3 uid="uid://b7xrs3l5ksc08"]
 
-[ext_resource type="Texture2D" uid="uid://da0m6qcahaaxc" path="res://assets/icon.svg" id="1_d3yvr"]
 [ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_m855r"]
+[ext_resource type="Theme" uid="uid://v3oox01micuf" path="res://assets/themes/text_theme.tres" id="2_h42ra"]
+[ext_resource type="Theme" uid="uid://uq3tu1k2hlny" path="res://assets/themes/button_theme.tres" id="3_gnwt1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0yqcd"]
+bg_color = Color(0.12549, 0.235294, 0.337255, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
 
 [node name="PauseMenu" type="Node2D"]
 script = ExtResource("1_m855r")
@@ -9,34 +17,62 @@ script = ExtResource("1_m855r")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-offset_left = 181.0
-offset_top = 85.0
-offset_right = 967.0
-offset_bottom = 595.0
-texture = ExtResource("1_d3yvr")
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -250.0
+offset_right = 500.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0yqcd")
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 offset_left = 353.0
 offset_top = 98.0
 offset_right = 775.0
-offset_bottom = 263.0
+offset_bottom = 273.0
+theme = ExtResource("2_h42ra")
 theme_override_font_sizes/font_size = 120
 text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Resume" type="Button" parent="CanvasLayer"]
-offset_left = 438.0
-offset_top = 294.0
-offset_right = 678.0
-offset_bottom = 385.0
+custom_minimum_size = Vector2(800, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -45.5
+offset_right = 400.0
+offset_bottom = 45.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_gnwt1")
 theme_override_font_sizes/font_size = 60
 text = "Resume"
 
 [node name="Exit" type="Button" parent="CanvasLayer"]
-offset_left = 440.0
-offset_top = 420.0
-offset_right = 680.0
-offset_bottom = 511.0
+custom_minimum_size = Vector2(800, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -400.0
+offset_top = -239.0
+offset_right = 400.0
+offset_bottom = -148.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("3_gnwt1")
 theme_override_font_sizes/font_size = 60
 text = "Exit"
 

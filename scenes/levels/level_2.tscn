@@ -10,40 +10,81 @@
 [node name="Level2" type="Node2D"]
 
 [node name="Door" parent="." instance=ExtResource("1_wvsng")]
-position = Vector2(2218, 541)
+position = Vector2(2300, 770)
 
-[node name="Platform" parent="." instance=ExtResource("2_8n0o5")]
+[node name="SpikeLayer" type="Node2D" parent="." groups=["danger"]]
+position = Vector2(82, 229)
+
+[node name="Spike2" parent="SpikeLayer" instance=ExtResource("4_pfat1")]
+position = Vector2(1699, 616)
+rotation = 1.5708
+scale = Vector2(8.28001, 0.8)
+
+[node name="Spike3" parent="SpikeLayer" instance=ExtResource("4_pfat1")]
+position = Vector2(1699, 86)
+rotation = 1.5708
+scale = Vector2(27.8, 0.8)
+
+[node name="PlatformLayer" type="Node2D" parent="."]
+position = Vector2(82, 229)
+
+[node name="Platform" parent="PlatformLayer" instance=ExtResource("2_8n0o5")]
 position = Vector2(203, 302)
 scale = Vector2(4.2, 1)
 
-[node name="Platform2" parent="." instance=ExtResource("2_8n0o5")]
+[node name="Platform2" parent="PlatformLayer" instance=ExtResource("2_8n0o5")]
 position = Vector2(2046, 621)
 scale = Vector2(4.12, 1)
 
 [node name="Outlet" parent="." instance=ExtResource("3_4tq14")]
-position = Vector2(1861, 564)
+position = Vector2(1943, 793)
 
-[node name="SpikeLayer" type="Node2D" parent="." groups=["danger"]]
+[node name="CordLayer" type="Node2D" parent="."]
+position = Vector2(82, 229)
 
-[node name="Spike" parent="SpikeLayer" instance=ExtResource("4_pfat1")]
-position = Vector2(804, 639)
-scale = Vector2(88.16, 0.8)
-
-[node name="Spike2" parent="SpikeLayer" instance=ExtResource("4_pfat1")]
-position = Vector2(1699, 591)
-rotation = 1.5708
-scale = Vector2(6.12001, 0.8)
-
-[node name="Spike3" parent="SpikeLayer" instance=ExtResource("4_pfat1")]
-position = Vector2(1699, 185)
-rotation = 1.5708
-scale = Vector2(18.32, 0.8)
-
-[node name="Cord" parent="." instance=ExtResource("5_ssm5n")]
+[node name="Cord" parent="CordLayer" instance=ExtResource("5_ssm5n")]
 position = Vector2(656, 148)
 
-[node name="Cord2" parent="." instance=ExtResource("5_ssm5n")]
+[node name="Cord2" parent="CordLayer" instance=ExtResource("5_ssm5n")]
 position = Vector2(1246, 148)
 
+[node name="Bounds" type="Node2D" parent="."]
+
+[node name="Spike" parent="Bounds" instance=ExtResource("4_pfat1")]
+position = Vector2(1342, 33)
+scale = Vector2(135.08, 1)
+
+[node name="Spike2" parent="Bounds" instance=ExtResource("4_pfat1")]
+position = Vector2(1342, 933)
+scale = Vector2(134.56, 1)
+
+[node name="Spike3" parent="Bounds" instance=ExtResource("4_pfat1")]
+position = Vector2(-3, 481)
+rotation = 1.5708
+scale = Vector2(48.04, 1)
+
+[node name="Spike4" parent="Bounds" instance=ExtResource("4_pfat1")]
+position = Vector2(2681, 484)
+rotation = 1.5708
+scale = Vector2(47.48, 1)
+
+[node name="Platform" parent="Bounds" instance=ExtResource("2_8n0o5")]
+position = Vector2(1335, 20)
+scale = Vector2(21.2, 1)
+
+[node name="Platform2" parent="Bounds" instance=ExtResource("2_8n0o5")]
+position = Vector2(1340, 948)
+scale = Vector2(21.32, 1)
+
+[node name="Platform3" parent="Bounds" instance=ExtResource("2_8n0o5")]
+position = Vector2(-16, 484)
+rotation = 1.5708
+scale = Vector2(7.5, 1)
+
+[node name="Platform4" parent="Bounds" instance=ExtResource("2_8n0o5")]
+position = Vector2(2693, 484)
+rotation = 1.5708
+scale = Vector2(7.5, 1)
+
 [node name="PlayerManager" parent="." instance=ExtResource("6_5gx6l")]
-position = Vector2(228, 235)
+position = Vector2(310, 464)
