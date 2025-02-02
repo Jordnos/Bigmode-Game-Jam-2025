@@ -1,14 +1,58 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2j5i3i63v4pt"]
+[gd_scene load_steps=6 format=3 uid="uid://c2j5i3i63v4pt"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_f5ji0"]
 [ext_resource type="Texture2D" uid="uid://da0m6qcahaaxc" path="res://assets/icon.svg" id="2_u54qk"]
+[ext_resource type="Theme" uid="uid://v3oox01micuf" path="res://assets/themes/text_theme.tres" id="3_e6s87"]
+[ext_resource type="Theme" uid="uid://uq3tu1k2hlny" path="res://assets/themes/button_theme.tres" id="3_rlnhw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uyfxq"]
+bg_color = Color(0.12549, 0.235294, 0.337255, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_f5ji0")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.329412, 0.305882, 0.407843, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
+visible = false
+offset_left = 86.0
+offset_top = 95.0
+offset_right = 126.0
+offset_bottom = 135.0
+scale = Vector2(24.7132, 11.8732)
+color = Color(0.12549, 0.235294, 0.337255, 1)
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -250.0
+offset_right = 500.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_uyfxq")
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+visible = false
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 1147.0
@@ -16,28 +60,49 @@ offset_bottom = 643.0
 texture = ExtResource("2_u54qk")
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = 41.0
-offset_top = 86.0
-offset_right = 1112.0
-offset_bottom = 251.0
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 90.0
+offset_bottom = 265.0
+grow_horizontal = 2
+theme = ExtResource("3_e6s87")
 theme_override_font_sizes/font_size = 120
-text = "Name of the game"
+text = "Plug Me in"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
 
 [node name="Button" type="Button" parent="CanvasLayer"]
-offset_left = 379.0
-offset_top = 284.0
-offset_right = 725.0
-offset_bottom = 375.0
-theme_override_constants/icon_max_width = 0
-theme_override_font_sizes/font_size = 60
+custom_minimum_size = Vector2(800, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -24.5
+offset_right = 400.0
+offset_bottom = 66.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_rlnhw")
 text = "Start Game"
+icon_alignment = 1
 
 [node name="Button2" type="Button" parent="CanvasLayer"]
-offset_left = 494.0
-offset_top = 403.0
-offset_right = 609.0
-offset_bottom = 494.0
-theme_override_font_sizes/font_size = 60
+custom_minimum_size = Vector2(800, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = 106.0
+offset_right = 400.0
+offset_bottom = 197.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_rlnhw")
 text = "Exit
 "
 
