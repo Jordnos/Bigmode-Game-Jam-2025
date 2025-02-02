@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://v3oox01micuf"]
+
+[ext_resource type="FontFile" uid="uid://cy7gtyddd8ne2" path="res://assets/fonts/CherryBombOne-Regular.ttf" id="1_68xt4"]
+
+[resource]
+Label/colors/font_color = Color(1, 0.92549, 0.839216, 1)
+Label/fonts/font = ExtResource("1_68xt4")

@@ -33,10 +33,10 @@ cord to move it around."
 metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="TutorialText"]
-offset_left = 324.0
-offset_top = 368.0
-offset_right = 516.0
-offset_bottom = 547.0
+offset_left = 270.0
+offset_top = 340.0
+offset_right = 462.0
+offset_bottom = 519.0
 text = "Interact with the outlet 
 to take its power. You
 can enter the door to 

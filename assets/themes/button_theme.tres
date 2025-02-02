@@ -1,0 +1,24 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://uq3tu1k2hlny"]
+
+[ext_resource type="FontFile" uid="uid://cy7gtyddd8ne2" path="res://assets/fonts/CherryBombOne-Regular.ttf" id="1_apb5t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_43vhp"]
+bg_color = Color(0.0509804, 0.168627, 0.270588, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yrycf"]
+bg_color = Color(0.0509804, 0.168627, 0.270588, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[resource]
+Button/colors/font_color = Color(1, 0.92549, 0.839216, 1)
+Button/font_sizes/font_size = 60
+Button/fonts/font = ExtResource("1_apb5t")
+Button/styles/hover = SubResource("StyleBoxFlat_43vhp")
+Button/styles/normal = SubResource("StyleBoxFlat_yrycf")
